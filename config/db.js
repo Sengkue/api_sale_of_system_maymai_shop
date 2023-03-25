@@ -13,14 +13,26 @@ const sequelize = new Sequelize(
     },
   }
 );
-async function connectToDatabase() {
-  try {
-    await sequelize.authenticate();
-    console.log("Connection has been established successfully.");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-}
+// async function connectToDatabase() {
+//   try {
+//     await sequelize.authenticate();
+//     console.log("Connection has been established successfully.");
+//   } catch (error) {
+//     console.error("Unable to connect to the database:", error);
+//   }
+// }
 
-connectToDatabase();
+// connectToDatabase();
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
+
+sequelize.sync().then(() => {
+  console.log("Database & tables created!");
+});
 module.exports = sequelize;
