@@ -16,26 +16,25 @@ exports.create= async(req, res)=>{
     })
 }
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    User.findOne({ where: { username: username } }).then((data) => {
-        const validPassword = bcrypt.compare(password, data.password);
+    try {
+      const user = await User.findOne({ where: { username: username } });
+      if (user) {
+        const validPassword = await bcrypt.compare(password, user.password);
         if (validPassword) {
-            const user={
-                ID: data.id,
-                USERNAME: data.username,
-
-            };
-            const token = jwt.sign(user, process.env.SECRET_KEY, {expiresIn:'31d'});
-            return res.status(200).json({ result: "it is correctly!!!", token:token });
+          const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET_KEY, { expiresIn: '31d' });
+          return res.status(200).json({ result: "Login successful!", token: token });
         }
-        return res.status(403).json({ result: "Fail for login!!!!" });
-
-    }).catch((error) => {
-        return res.status(500).json({ result: error });
-    });
-}
+      }
+      return res.status(403).json({ result: "Invalid username or password!" });
+    } catch (error) {
+        console.error(error); // Log the error for debugging purposes
+        return res.status(500).json({ result: "Internal server error!" });
+      }
+  };
+  
 
 exports.findAll=(req, res)=>{
     // User.findAll().then((data)=>{ find all
