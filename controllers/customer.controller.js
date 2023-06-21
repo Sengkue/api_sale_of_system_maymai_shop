@@ -80,17 +80,37 @@ exports.findOne = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
-
+// update customer information
 exports.update = async (req, res) => {
   const id = req.params.id;
-  const { c_profile, c_fname, c_lname, c_gender, c_phone, c_password, c_location_id } = req.body;
+  const { c_profile, c_fname, c_lname, c_gender,c_location_id } = req.body;
 
   try {
     const updatedCustomer = await Customer.update(
-      { c_profile, c_fname, c_lname, c_gender, c_phone, c_password, c_location_id },
+      { c_profile, c_fname, c_lname, c_gender, c_location_id },
       { where: { c_id: id } }
     );
     return res.status(200).json({ result: updatedCustomer });
+  } catch (error) {
+    return res.status(500).json({ result: error });
+  }
+};
+// udate custommer pssword
+exports.update_password = async (req, res) => {
+  const id = req.params.id;
+  const { c_password } = req.body;
+
+  try {
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(c_password, 5);
+
+    // Update the password field
+    await Customer.update(
+      { c_password: hashedPassword },
+      { where: { c_id: id } }
+    );
+
+    return res.status(200).json({ result: 'Password updated successfully!' });
   } catch (error) {
     return res.status(500).json({ result: error });
   }

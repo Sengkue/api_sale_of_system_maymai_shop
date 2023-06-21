@@ -5,8 +5,8 @@ const verifyToken = require('../middleware');
 route.post('/', controller.create);
 route.post('/login', controller.login);
 route.get('/', verifyToken, controller.findAll);
-route.get('/:id', controller.findOne);
-route.put('/:id', controller.update);
-route.delete('/:id', controller.delete);
+route.get('/:id', verifyToken,controller.findOne);
+route.put('/:id', verifyToken,controller.update);
+route.delete('/:id', verifyToken,controller.delete);
 
 module.exports = route;
