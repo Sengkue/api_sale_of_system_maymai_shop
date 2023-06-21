@@ -19,6 +19,7 @@ exports.create= async(req, res)=>{
 exports.login = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+    console.log('dddata:',username, password)
     try {
       const user = await User.findOne({ where: { username: username } });
       if (user) {
