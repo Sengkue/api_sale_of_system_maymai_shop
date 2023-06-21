@@ -11,6 +11,46 @@ exports.create = async (req, res) => {
       return res.status(400).json({ result: 'Password is required!' });
     }
 
+    // Check if the c_phone already exists in the database
+    const existingCustomer = await Customer.findOne({ where: { c_phone } });
+    if (existingCustomer) {
+      return res.status(400).json({ result: 'Phone number already in use!' });
+    }
+
+    const hashedPassword = await bcrypt.hash(c_password, 5);
+
+    const customer = {
+      c_profile,
+      c_fname,
+      c_lname,
+      c_gender,
+      c_phone,
+      c_password: hashedPassword,
+      c_location_id,
+    };
+
+    const createdCustomer = await Customer.create(customer);
+    return res.status(200).json({ result: createdCustomer });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ result: 'Internal server error!' });
+  }
+};
+
+exports.create = async (req, res) => {
+  try {
+    const { c_profile, c_fname, c_lname, c_gender, c_phone, c_password, c_location_id } = req.body;
+
+    if (!c_password) {
+      return res.status(400).json({ result: 'Password is required!' });
+    }
+
+    // Check if the c_phone already exists in the database
+    const existingCustomer = await Customer.findOne({ where: { c_phone } });
+    if (existingCustomer) {
+      return res.status(400).json({ result: 'Phone number already in use!' });
+    }
+
     const hashedPassword = await bcrypt.hash(c_password, 5);
 
     const customer = {

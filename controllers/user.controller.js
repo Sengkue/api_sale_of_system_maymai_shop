@@ -3,76 +3,100 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-exports.create= async(req, res)=>{
-    const password = await bcrypt.hash(req.body.password, 5)
-    const user={
-        username:req.body.username,
-        password:password
-    }
-    User.create(user).then((data)=>{
-        return res.status(200).json({result: data});
-    }).catch((error)=>{
-        return res.status(200).json({result: error});
-    })
-}
-
-exports.login = async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    console.log('dddata:',username, password)
+exports.create = async (req, res) => {
     try {
-      const user = await User.findOne({ where: { username: username } });
-      if (user) {
-        const validPassword = await bcrypt.compare(password, user.password);
-        if (validPassword) {
-          const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET_KEY, { expiresIn: '31d' });
-          return res.status(200).json({ result: "Login successful!", token: token });
-        }
+      const { employee_id, owner_id, phone, password } = req.body;
+  
+      // Check if a user with the same phone number already exists
+      const existingUser = await User.findOne({ where: { phone: phone } });
+      if (existingUser) {
+        return res.status(400).json({ result: 'User with the same phone number already exists!' });
       }
-      return res.status(403).json({ result: "Invalid username or password!" });
+  
+      const hashedPassword = await bcrypt.hash(password, 5);
+  
+      const user = {
+        employee_id,
+        owner_id,
+        phone,
+        password: hashedPassword,
+      };
+  
+      const createdUser = await User.create(user);
+      return res.status(200).json({ result: createdUser });
     } catch (error) {
-        console.error(error); // Log the error for debugging purposes
-        return res.status(500).json({ result: "Internal server error!" });
-      }
+      console.error(error);
+      return res.status(500).json({ result: 'Internal server error!' });
+    }
   };
   
 
-exports.findAll=(req, res)=>{
-    // User.findAll().then((data)=>{ find all
-        User.findAndCountAll().then((data)=>{   //find and cound items
-        return res.status(200).json({result: data})
-    }).catch((error)=>{
-        return res.status(500).json({result: error});
-    })
-}
-
-exports.findOne=(req, res)=>{
-    const id = req.params.id;
-    User.findOne({where:{id:id}}).then((data)=>{
-        return res.status(200).json({result: data});
-    }).catch((error)=>{
-        return res.status(500).json({result: error});
-    });
-}
-
-exports.update=(req, res)=>{
-    const id = req.params.id
-    const user={
-        username:req.body.username,
-        password:req.body.password,
+  exports.login = async (req, res) => {
+    const { phone, password } = req.body;
+  
+    try {
+      const user = await User.findOne({ where: { phone: phone } });
+      if (user) {
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (validPassword) {
+          const token = jwt.sign({ id: user.id, phone: user.phone }, process.env.SECRET_KEY, { expiresIn: '31d' });
+          return res.status(200).json({ result: 'Login successful!', token: token });
+        }
+      }
+      return res.status(403).json({ result: 'Invalid phone number or password!' });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ result: 'Internal server error!' });
     }
-    User.update(user, {where:{id:id}}).then((data)=>{
-        return res.status(200).json({result: data});
-    }).catch((error)=>{
-        return res.status(200).json({result: error});
-    })
-}
+  };
+  
 
-exports.delete=(req, res)=>{
-    const id = req.params.id;
-    User.destroy({where:{id:id}}).then((data)=>{
-        return res.status(200).json({result: data});
-    }).catch((error)=>{
-        return res.status(500).json({result: error});
-    });
-}
+exports.findAll = async (req, res) => {
+  try {
+    const users = await User.findAndCountAll();
+    return res.status(200).json({ result: users });
+  } catch (error) {
+    return res.status(500).json({ result: error });
+  }
+};
+
+exports.findOne = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const user = await User.findOne({ where: { id: id } });
+    if (user) {
+      return res.status(200).json({ result: user });
+    } else {
+      return res.status(404).json({ result: 'User not found!' });
+    }
+  } catch (error) {
+    return res.status(500).json({ result: error });
+  }
+};
+
+exports.update = async (req, res) => {
+  const id = req.params.id;
+  const { username, password } = req.body;
+
+  try {
+    const updatedUser = await User.update(
+      { username, password },
+      { where: { id: id } }
+    );
+    return res.status(200).json({ result: updatedUser });
+  } catch (error) {
+    return res.status(500).json({ result: error });
+  }
+};
+
+exports.delete = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const deletedUser = await User.destroy({ where: { id: id } });
+    return res.status(200).json({ result: deletedUser });
+  } catch (error) {
+    return res.status(500).json({ result: error });
+  }
+};
