@@ -1,22 +1,9 @@
-const Product = require("../models/product.model");
-const Category = require("../models/category.model");
-const sequelize = require("../config/db");
-const {QueryTypes} = require('sequelize');
+const Employee = require('../models/employee.model');
 
+// Create a new employee
 exports.create = (req, res) => {
-  Product.create({ ...req.body })
+  Employee.create({ ...req.body })
     .then((data) => {
-      return res.status(200).json({ result: data });
-    })
-    .catch((error) => {
-      return res.status(200).json({ result: error });
-    });
-};
-
-exports.findAll = (req, res) => {
-  sequelize.query(`SELECT pr.id, pr.name, ca.category, pr.description, pr.qauntity, pr.price, pr.createdAt, pr.updatedAt 
-    FROM products pr INNER JOIN categories ca ON pr.category = ca.id`,
-    {type: QueryTypes.SELECT}).then((data) => {
       return res.status(200).json({ result: data });
     })
     .catch((error) => {
@@ -24,9 +11,21 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Get all employees
+exports.findAll = (req, res) => {
+  Employee.findAll()
+    .then((data) => {
+      return res.status(200).json({ result: data });
+    })
+    .catch((error) => {
+      return res.status(500).json({ result: error });
+    });
+};
+
+// Get a single employee by ID
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  Product.findOne({ where: { id: id } })
+  Employee.findOne({ where: { id: id } })
     .then((data) => {
       return res.status(200).json({ result: data });
     })
@@ -35,23 +34,23 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Update an employee by ID
 exports.update = (req, res) => {
   const id = req.params.id;
-  const Product = {
-    Product: req.body.Product,
-  };
-  Product.update(Product, { where: { id: id } })
+  const updatedEmployee = { ...req.body };
+  Employee.update(updatedEmployee, { where: { id: id } })
     .then((data) => {
       return res.status(200).json({ result: data });
     })
     .catch((error) => {
-      return res.status(200).json({ result: error });
+      return res.status(500).json({ result: error });
     });
 };
 
+// Delete an employee by ID
 exports.delete = (req, res) => {
   const id = req.params.id;
-  Product.destroy({ where: { id: id } })
+  Employee.destroy({ where: { id: id } })
     .then((data) => {
       return res.status(200).json({ result: data });
     })

@@ -26,6 +26,11 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false, // Disallow null values
     },
+    status: {
+      type: DataTypes.STRING, // Adjust the data type as per your requirements
+      allowNull: false,
+      // defaultValue: "active", // Set a default value if needed
+    },
   },
   {
     sequelize,
