@@ -2,21 +2,31 @@ const route = require('express').Router();
 const category = require('./category.routes');
 const product = require('./product.routes');
 const user = require('./user.routes');
-const customer = require('./customer.routes'); // Add this line to import the customer routes
+const customer = require('./customer.routes');
 const upload = require('../uploads/upload.product');
 const productImage = require('./productImage.routes');
 const Employee = require('./employee.routes');
 const Owner = require('./owner.routes');
 const Banner = require('./banner.routes');
+const Location = require('./location.routes');
+const Province = require('./province.routes');
+const district = require('./district.routes');
+const supplierRoutes = require('./supplier.routes');
+const promotion = require('./promotion.routes');
 
 route.use('/category', category);
 route.use('/product', product);
 route.use('/user', user);
-route.use('/customer', customer); // Add this line to mount the customer routes
+route.use('/customer', customer);
 route.use('/upload', upload);
 route.use('/image', productImage);
 route.use('/employee', Employee);
 route.use('/owner', Owner);
 route.use('/banner', Banner);
+route.use('/location', Location);
+route.use('/province', Province);
+route.use('/district', district);
+route.use('/supplier', supplierRoutes);
+route.use('/promotion', promotion);
 
 module.exports = route;

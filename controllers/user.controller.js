@@ -1,4 +1,6 @@
 const User = require('../models/user.model');
+const Employee = require('../models/employee.model');
+const Owner = require('../models/owner.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -31,19 +33,37 @@ exports.create = async (req, res) => {
   }
 };
 
-
 exports.login = async (req, res) => {
   const { phone, password } = req.body;
 
   try {
-    const user = await User.findOne({ where: { phone: phone } });
+    const user = await User.findOne({ 
+      where: { phone: phone },
+      include: [
+        { model: Employee, as: 'employee', attributes: ['firstName'] },
+        { model: Owner, as: 'owner', attributes: ['firstName'] }
+      ]
+    });
+
     if (user) {
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
         const token = jwt.sign({ id: user.id, phone: user.phone }, process.env.SECRET_KEY, { expiresIn: '31d' });
-        return res.status(200).json({ result: 'Login successful!', token: token, status: user.status });
+
+        // Extract first names from employee and owner if available
+        const employeeFirstName = user.employee ? user.employee.firstName : null;
+        const ownerFirstName = user.owner ? user.owner.firstName : null;
+
+        return res.status(200).json({ 
+          result: 'Login successful!', 
+          token: token, 
+          status: user.status,
+          employeeFirstName: employeeFirstName,
+          ownerFirstName: ownerFirstName
+        });
       }
     }
+
     return res.status(403).json({ result: 'Invalid phone number or password!' });
   } catch (error) {
     console.error(error);
@@ -51,22 +71,33 @@ exports.login = async (req, res) => {
   }
 };
 
-  
-
 exports.findAll = async (req, res) => {
   try {
-    const users = await User.findAndCountAll();
+    const users = await User.findAll({
+      include: [
+        { model: Employee, as: 'employee' },
+        { model: Owner, as: 'owner' }
+      ]
+    });
     return res.status(200).json({ result: users });
   } catch (error) {
     return res.status(500).json({ result: error });
   }
 };
 
+
 exports.findOne = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const user = await User.findOne({ where: { id: id } });
+    const user = await User.findOne({ 
+      where: { id: id },
+      include: [
+        { model: Employee, as: 'employee' },
+        { model: Owner, as: 'owner' }
+      ]
+    });
+
     if (user) {
       return res.status(200).json({ result: user });
     } else {
@@ -76,6 +107,9 @@ exports.findOne = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
+
+
+
 
 exports.update = async (req, res) => {
   const id = req.params.id;
@@ -102,8 +136,6 @@ exports.update = async (req, res) => {
     return res.status(500).json({ result: 'Internal server error!' });
   }
 };
-
-
 
 exports.delete = async (req, res) => {
   const id = req.params.id;

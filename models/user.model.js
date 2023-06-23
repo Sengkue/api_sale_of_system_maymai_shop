@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Employee = require("./employee.model");
+const Owner = require("./owner.model");
 
 const User = sequelize.define(
   "users",
@@ -37,5 +39,8 @@ const User = sequelize.define(
     timestamps: true,
   }
 );
+
+User.belongsTo(Employee, { foreignKey: 'employee_id', as: 'employee' });
+User.belongsTo(Owner, { foreignKey: 'owner_id', as: 'owner' });
 
 module.exports = User;

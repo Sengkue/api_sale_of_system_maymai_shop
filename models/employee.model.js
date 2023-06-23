@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Province = require("./province.model");
+const District = require("./district.model");
 
 const Employee = sequelize.define(
   "employees",
@@ -22,22 +24,6 @@ const Employee = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    provinceId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    districtId: { // Updated field name from 'district_id' to 'districtId'
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    village: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     profile: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -56,5 +42,9 @@ const Employee = sequelize.define(
     timestamps: true,
   }
 );
+
+// Define associations
+Employee.belongsTo(Province, { foreignKey: 'provinceId' });
+Employee.belongsTo(District, { foreignKey: 'districtId' });
 
 module.exports = Employee;
