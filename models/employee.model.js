@@ -36,6 +36,10 @@ const Employee = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    village: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,

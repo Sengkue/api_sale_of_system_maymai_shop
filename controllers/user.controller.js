@@ -71,6 +71,7 @@ exports.login = async (req, res) => {
   }
 };
 
+
 exports.findAll = async (req, res) => {
   try {
     const users = await User.findAll({
@@ -122,9 +123,13 @@ exports.update = async (req, res) => {
       const { phone } = user;
       user.employee_id = employee_id;
       user.owner_id = owner_id;
-      user.password = await bcrypt.hash(password, 5);
-      user.status = status;
 
+      // Only update the password if it is not null
+      if (password) {
+        user.password = await bcrypt.hash(password, 5);
+      }
+
+      user.status = status;
       await user.save();
 
       return res.status(200).json({ result: user });
@@ -136,6 +141,7 @@ exports.update = async (req, res) => {
     return res.status(500).json({ result: 'Internal server error!' });
   }
 };
+
 
 exports.delete = async (req, res) => {
   const id = req.params.id;

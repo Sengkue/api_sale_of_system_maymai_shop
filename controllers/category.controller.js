@@ -4,7 +4,6 @@ exports.create=(req, res)=>{
     const category={
         category:req.body.category
     }
-
     Category.create(category).then((data)=>{
         return res.status(200).json({result: data});
     }).catch((error)=>{
