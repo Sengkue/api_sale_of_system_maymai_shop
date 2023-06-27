@@ -69,6 +69,35 @@ exports.findAll = (req, res) => {
       });
   };
 
+  exports.getByProvinceId = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const districts = await District.findAll({
+      where: { provinceId: id },
+      include: [{ model: Province, attributes: ['provinceName'], as: 'Province' }],
+    });
+
+    if (districts.length === 0) {
+      return res.status(404).json({ message: 'No districts found for the provided province ID' });
+    }
+
+    const formattedDistricts = districts.map((district) => ({
+      id: district.id,
+      provinceId: district.provinceId,
+      districtName: district.districtName,
+      provinceName: district.Province ? district.Province.provinceName : null,
+      createdAt: district.createdAt,
+      updatedAt: district.updatedAt,
+    }));
+
+    return res.status(200).json({ result: formattedDistricts });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ result: 'Internal server error!' });
+  }
+};
+
 exports.update = (req, res) => {
   const id = req.params.id;
   const updatedDistrict = { ...req.body };

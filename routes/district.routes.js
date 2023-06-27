@@ -8,5 +8,6 @@ route.get('/:id',  controller.findOne);
 route.put('/:id',  controller.update);
 route.delete('/:id',  controller.delete);
 route.delete('/', controller.deleteAll); // Route for deleting all districts
+route.get('/province/:id', controller.getByProvinceId); // Route for deleting all districts
 
 module.exports = route;

@@ -56,6 +56,7 @@ exports.findAll = async (req, res) => {
       updatedAt: employee.updatedAt,
       provinceId: employee.provinceId,
       districtId: employee.districtId,
+      village:employee.village,
       province: employee.Province ? employee.Province.provinceName : null,
       district: employee.district ? employee.district.districtName : null
     }));
@@ -92,6 +93,7 @@ exports.findOne = async (req, res) => {
       profile: employee.profile,
       email: employee.email,
       phone: employee.phone,
+      village: employee.village,
       createdAt: employee.createdAt,
       updatedAt: employee.updatedAt,
       provinceId: employee.provinceId,
