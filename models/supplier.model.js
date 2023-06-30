@@ -29,6 +29,10 @@ const Supplier = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    village: { // Add the village field
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,

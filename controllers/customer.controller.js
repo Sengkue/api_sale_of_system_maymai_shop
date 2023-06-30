@@ -5,7 +5,7 @@ require('dotenv').config();
 
 exports.create = async (req, res) => {
   try {
-    const { c_profile, c_fname, c_lname, c_gender, c_phone, c_password, c_location_id } = req.body;
+    const { c_profile, c_fname, c_lname, c_gender, c_phone, c_password } = req.body;
 
     if (!c_password) {
       return res.status(400).json({ result: 'Password is required!' });
@@ -26,41 +26,6 @@ exports.create = async (req, res) => {
       c_gender,
       c_phone,
       c_password: hashedPassword,
-      c_location_id,
-    };
-
-    const createdCustomer = await Customer.create(customer);
-    return res.status(200).json({ result: createdCustomer });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ result: 'Internal server error!' });
-  }
-};
-
-exports.create = async (req, res) => {
-  try {
-    const { c_profile, c_fname, c_lname, c_gender, c_phone, c_password, c_location_id } = req.body;
-
-    if (!c_password) {
-      return res.status(400).json({ result: 'Password is required!' });
-    }
-
-    // Check if the c_phone already exists in the database
-    const existingCustomer = await Customer.findOne({ where: { c_phone } });
-    if (existingCustomer) {
-      return res.status(400).json({ result: 'Phone number already in use!' });
-    }
-
-    const hashedPassword = await bcrypt.hash(c_password, 5);
-
-    const customer = {
-      c_profile,
-      c_fname,
-      c_lname,
-      c_gender,
-      c_phone,
-      c_password: hashedPassword,
-      c_location_id,
     };
 
     const createdCustomer = await Customer.create(customer);
@@ -72,30 +37,29 @@ exports.create = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    const { c_phone, c_password } = req.body;
-  
-    try {
-      const customer = await Customer.findOne({ where: { c_phone } });
-      if (customer) {
-        const validPassword = await bcrypt.compare(c_password, customer.c_password);
-        if (validPassword) {
-          const payload = {
-            id: customer.c_id,
-            c_phone: customer.c_phone,
-            c_fname: customer.c_fname // Include c_fname in the payload
-          };
-  
-          const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '31d' });
-          return res.status(200).json({ result: 'Login successful!', token, c_fname: customer.c_fname });
-        }
+  const { c_phone, c_password } = req.body;
+
+  try {
+    const customer = await Customer.findOne({ where: { c_phone } });
+    if (customer) {
+      const validPassword = await bcrypt.compare(c_password, customer.c_password);
+      if (validPassword) {
+        const payload = {
+          id: customer.c_id,
+          c_phone: customer.c_phone,
+          c_fname: customer.c_fname // Include c_fname in the payload
+        };
+
+        const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '31d' });
+        return res.status(200).json({ result: 'Login successful!', token, c_fname: customer.c_fname });
       }
-      return res.status(403).json({ result: 'Invalid phone number or password!' });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ result: 'Internal server error!' });
     }
-  };
-  
+    return res.status(403).json({ result: 'Invalid phone number or password!' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ result: 'Internal server error!' });
+  }
+};
 
 exports.findAll = async (req, res) => {
   try {
@@ -120,14 +84,14 @@ exports.findOne = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
-// update customer information
+
 exports.update = async (req, res) => {
   const id = req.params.id;
-  const { c_profile, c_fname, c_lname, c_gender,c_location_id } = req.body;
+  const { c_profile, c_fname, c_lname, c_gender } = req.body;
 
   try {
     const updatedCustomer = await Customer.update(
-      { c_profile, c_fname, c_lname, c_gender, c_location_id },
+      { c_profile, c_fname, c_lname, c_gender },
       { where: { c_id: id } }
     );
     return res.status(200).json({ result: updatedCustomer });
@@ -135,7 +99,7 @@ exports.update = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
-// udate custommer pssword
+
 exports.update_password = async (req, res) => {
   const id = req.params.id;
   const { c_password } = req.body;
