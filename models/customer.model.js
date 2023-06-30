@@ -34,10 +34,6 @@ const Customer = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    c_location_id: {
-      type: DataTypes.UUID,
-      allowNull: true,
-    }
   },
   {
     sequelize,

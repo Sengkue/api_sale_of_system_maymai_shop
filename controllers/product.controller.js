@@ -1,7 +1,7 @@
 const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 const sequelize = require("../config/db");
-const {QueryTypes} = require('sequelize');
+const { QueryTypes } = require('sequelize');
 
 exports.create = (req, res) => {
   Product.create({ ...req.body })
@@ -14,9 +14,15 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  sequelize.query(`SELECT pr.id, pr.name, ca.category, pr.description, pr.qauntity, pr.price, pr.createdAt, pr.updatedAt 
-    FROM products pr INNER JOIN categories ca ON pr.category = ca.id`,
-    {type: QueryTypes.SELECT}).then((data) => {
+  sequelize
+    .query(
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name
+      FROM products pr
+      INNER JOIN categories ca ON pr.category = ca.id
+      INNER JOIN Suppliers sup ON pr.supplier_id = sup.id`,
+      { type: QueryTypes.SELECT }
+    )
+    .then((data) => {
       return res.status(200).json({ result: data });
     })
     .catch((error) => {
@@ -26,28 +32,52 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  Product.findOne({ where: { id: id } })
+  sequelize
+    .query(
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name
+      FROM products pr
+      INNER JOIN categories ca ON pr.category = ca.id
+      INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
+      WHERE pr.id = :id`,
+      {
+        replacements: { id: id },
+        type: QueryTypes.SELECT,
+      }
+    )
     .then((data) => {
-      return res.status(200).json({ result: data });
+      if (data.length === 0) {
+        return res.status(404).json({ result: 'Product not found' });
+      }
+      const product = data[0];
+      return res.status(200).json({ result: product });
     })
     .catch((error) => {
       return res.status(500).json({ result: error });
     });
 };
 
+
+
+
 exports.update = (req, res) => {
   const id = req.params.id;
-  const Product = {
-    Product: req.body.Product,
-  };
-  Product.update(Product, { where: { id: id } })
-    .then((data) => {
-      return res.status(200).json({ result: data });
+  const updatedProduct = { ...req.body };
+
+  Product.update(updatedProduct, { where: { id: id } })
+    .then((result) => {
+      if (result[0] === 1) {
+        // Product updated successfully
+        return res.status(200).json({ result: "Product updated successfully" });
+      } else {
+        // Product not found
+        return res.status(404).json({ result: "Product not found" });
+      }
     })
     .catch((error) => {
-      return res.status(200).json({ result: error });
+      return res.status(500).json({ result: error });
     });
 };
+
 
 exports.delete = (req, res) => {
   const id = req.params.id;

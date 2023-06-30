@@ -21,12 +21,28 @@ const Product = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    price: {
-      type: DataTypes.INTEGER,
+    sale_price: { // Add the 'sale_price' column
+      type: DataTypes.FLOAT, // Modify the data type as per your requirements
       allowNull: false,
     },
-    qauntity: {
-      type: DataTypes.INTEGER,
+    cost_price: { // Add the 'cost_price' column
+      type: DataTypes.FLOAT, // Modify the data type as per your requirements
+      allowNull: false,
+    },
+    Barcode: { // Add the 'Barcode' column
+      type: DataTypes.STRING, // Modify the data type as per your requirements
+      allowNull: true,
+    },
+    supplier_id: { // Add the 'supplier_id' column
+      type: DataTypes.STRING, // Modify the data type as per your requirements
+      allowNull: true,
+    },
+    profile: { // Add the 'profile' column
+      type: DataTypes.STRING, // Modify the data type as per your requirements
+      allowNull: true,
+    },
+    quantity: { // Add the 'quantity' column
+      type: DataTypes.INTEGER, // Modify the data type as per your requirements
       allowNull: false,
       defaultValue: 0,
     },
