@@ -14,7 +14,6 @@ exports.create = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ result: 'User with the same phone number already exists!' });
     }
-
     const hashedPassword = await bcrypt.hash(password, 5);
 
     const user = {

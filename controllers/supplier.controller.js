@@ -14,7 +14,12 @@ exports.getAllSuppliers = async (req, res) => {
 exports.getSupplierById = async (req, res) => {
   const { id } = req.params;
   try {
-    const supplier = await Supplier.findByPk(id);
+    const supplier = await Supplier.findByPk(id, {
+      include: [
+        { model: Province, as: 'province' },
+        { model: District, as: 'district' }
+      ]
+    });
     if (!supplier) {
       return res.status(404).json({ error: 'Supplier not found' });
     }
@@ -24,9 +29,10 @@ exports.getSupplierById = async (req, res) => {
   }
 };
 
+
 // Create a new supplier
 exports.createSupplier = async (req, res) => {
-  const { profile, name, phone, provinceId, districtId, address, description } = req.body;
+  const { profile, name, phone, provinceId, districtId, village, address, description } = req.body;
   try {
     const supplier = await Supplier.create({
       profile,
@@ -34,6 +40,7 @@ exports.createSupplier = async (req, res) => {
       phone,
       provinceId,
       districtId,
+      village,
       address,
       description,
     });
@@ -55,6 +62,7 @@ exports.updateSupplier = async (req, res) => {
     supplier.profile = profile;
     supplier.name = name;
     supplier.phone = phone;
+    // supplier.village = village;
     supplier.provinceId = provinceId;
     supplier.districtId = districtId;
     supplier.address = address;

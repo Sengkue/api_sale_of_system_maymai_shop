@@ -33,6 +33,10 @@ const Supplier = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    village: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.STRING,
     },
