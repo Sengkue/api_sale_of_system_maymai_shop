@@ -39,6 +39,18 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Get images by product ID
+exports.findByProductId = (req, res) => {
+  const productId = req.params.productId;
+  Images.findAll({ where: { productId } })
+    .then((images) => {
+      res.status(200).json({ success: true, data: images });
+    })
+    .catch((error) => {
+      res.status(500).json({ success: false, error: error.message });
+    });
+};
+
 // Update an image by ID
 exports.update = (req, res) => {
   const id = req.params.id;

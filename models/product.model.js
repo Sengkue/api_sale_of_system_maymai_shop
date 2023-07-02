@@ -46,6 +46,11 @@ const Product = sequelize.define(
       allowNull: false,
       defaultValue: 0,
     },
+    size_id: { // Add the 'quantity' column
+      type: DataTypes.INTEGER, // Modify the data type as per your requirements
+      allowNull: true,
+      defaultValue: 0,
+    },
   },
   {
     sequelize,
