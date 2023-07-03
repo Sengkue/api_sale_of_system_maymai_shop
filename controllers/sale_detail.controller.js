@@ -26,6 +26,18 @@ exports.getSaleDetailById = (req, res) => {
     });
 };
 
+exports.getSaleDetailsBySaleId = (req, res) => {
+  const { sale_id } = req.params;
+
+  SaleDetail.findAll({ where: { sale_id } })
+    .then((saleDetails) => {
+      res.status(200).json({ result: saleDetails });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+};
+
 exports.createSaleDetail = (req, res) => {
   const { sale_id, product_id, sale_price, quantity } = req.body;
 

@@ -38,6 +38,10 @@ const Sale = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    sale_quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     sequelize,

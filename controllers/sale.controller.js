@@ -27,9 +27,9 @@ exports.getSaleById = (req, res) => {
 };
 
 exports.createSale = (req, res) => {
-  const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status } = req.body;
+  const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity } = req.body;
 
-  Sale.create({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status })
+  Sale.create({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity })
     .then((sale) => {
       res.status(201).json({ result: sale });
     })
@@ -40,13 +40,13 @@ exports.createSale = (req, res) => {
 
 exports.updateSale = (req, res) => {
     const { id } = req.params;
-    const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status } = req.body;
+    const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity } = req.body;
   
     Sale.findByPk(id)
       .then((sale) => {
         if (sale) {
           sale
-            .update({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status })
+            .update({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity })
             .then((updatedSale) => {
               res.status(200).json({ result: updatedSale });
             })
