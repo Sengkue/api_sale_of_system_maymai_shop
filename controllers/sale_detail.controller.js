@@ -39,9 +39,9 @@ exports.getSaleDetailsBySaleId = (req, res) => {
 };
 
 exports.createSaleDetail = (req, res) => {
-  const { sale_id, product_id, sale_price, quantity } = req.body;
+  const { sale_id, product_id, sale_price, quantity, name, category } = req.body;
 
-  SaleDetail.create({ sale_id, product_id, sale_price, quantity })
+  SaleDetail.create({ sale_id, product_id, sale_price, quantity, name, category })
     .then((createdSaleDetail) => {
       res.status(201).json({ result: createdSaleDetail });
     })
@@ -52,13 +52,13 @@ exports.createSaleDetail = (req, res) => {
 
 exports.updateSaleDetail = (req, res) => {
   const { id } = req.params;
-  const { sale_id, product_id, sale_price, quantity } = req.body;
+  const { sale_id, product_id, sale_price, quantity, name, category } = req.body;
 
   SaleDetail.findByPk(id)
     .then((saleDetail) => {
       if (saleDetail) {
         saleDetail
-          .update({ sale_id, product_id, sale_price, quantity })
+          .update({ sale_id, product_id, sale_price, quantity, name, category })
           .then((updatedSaleDetail) => {
             res.status(200).json({ result: updatedSaleDetail });
           })

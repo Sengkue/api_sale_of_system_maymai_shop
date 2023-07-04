@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Product = require("./product.model");
 
 const SaleDetail = sequelize.define(
   "sale_details",
@@ -26,11 +27,21 @@ const SaleDetail = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    name: { // Include the 'name' attribute from the associated Product model
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    category: { // Include the 'category' attribute from the associated Product model
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
   },
   {
     sequelize,
     timestamps: true,
   }
 );
+
+SaleDetail.belongsTo(Product, { foreignKey: "product_id" }); // Establish the association
 
 module.exports = SaleDetail;
