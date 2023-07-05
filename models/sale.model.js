@@ -1,8 +1,9 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/db");
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+const Promotion = require('./promotion.model');
 
 const Sale = sequelize.define(
-  "Sale",
+  'Sale',
   {
     id: {
       type: DataTypes.UUID,
@@ -47,8 +48,13 @@ const Sale = sequelize.define(
     sequelize,
     timestamps: true,
     modelName: 'Sale',
-    tableName: 'sales'
+    tableName: 'sales',
   }
 );
+
+Sale.belongsTo(Promotion, {
+  foreignKey: 'promotion_id',
+  as: 'promotion',
+});
 
 module.exports = Sale;

@@ -1,22 +1,83 @@
-const Sale = require("../models/sale.model");
+const Sale = require('../models/sale.model');
+const Promotion = require('../models/promotion.model');
 
 exports.getAllSales = (req, res) => {
-  Sale.findAll()
+  Sale.findAll({
+    include: {
+      model: Promotion,
+      as: 'promotion',
+      attributes: ['name', 'condition', 'discount'],
+    },
+  })
     .then((sales) => {
-      res.status(200).json({ result: sales });
+      const formattedSales = sales.map((sale) => {
+        const { id, customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity, createdAt, updatedAt, promotion } = sale;
+
+        const promotionName = promotion ? promotion.name : null;
+        const promotionCondition = promotion ? promotion.condition : null;
+        const promotionDiscount = promotion ? promotion.discount : null;
+
+        return {
+          id,
+          customer_id,
+          promotion_id,
+          employee_id,
+          sale_date,
+          sale_total,
+          sale_type,
+          sale_status,
+          sale_quantity,
+          createdAt,
+          updatedAt,
+          promotionName,
+          promotionCondition,
+          promotionDiscount,
+        };
+      });
+
+      res.status(200).json({ result: formattedSales });
     })
     .catch((error) => {
       res.status(500).json({ error: error.message });
     });
 };
 
+
 exports.getSaleById = (req, res) => {
   const { id } = req.params;
 
-  Sale.findByPk(id)
+  Sale.findByPk(id, {
+    include: {
+      model: Promotion,
+      as: 'promotion',
+      attributes: ['name', 'condition', 'discount'],
+    },
+  })
     .then((sale) => {
       if (sale) {
-        res.status(200).json({ result: sale });
+        const { id, customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity, createdAt, updatedAt, promotion } = sale;
+        const promotionName = promotion ? promotion.name : null;
+        const promotionCondition = promotion ? promotion.condition : null;
+        const promotionDiscount = promotion ? promotion.discount : null;
+
+        res.status(200).json({
+          result: {
+            id,
+            customer_id,
+            promotion_id,
+            employee_id,
+            sale_date,
+            sale_total,
+            sale_type,
+            sale_status,
+            sale_quantity,
+            createdAt,
+            updatedAt,
+            promotionName,
+            promotionCondition,
+            promotionDiscount,
+          },
+        });
       } else {
         res.status(404).json({ result: "Sale not found" });
       }
@@ -25,6 +86,7 @@ exports.getSaleById = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+
 
 exports.createSale = (req, res) => {
   const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity } = req.body;
