@@ -1,13 +1,13 @@
 const Order = require("../models/order.model");
+const Employee = require("../models/employee.model");
 
 // Create a new order
 exports.createOrder = (req, res) => {
-  const { employee_id, order_date, order_total } = req.body;
-
+  const { employee_id, order_date, status } = req.body; // Add 'status' field
   Order.create({
     employee_id,
     order_date,
-    order_total,
+    status, // Assign the provided status value
   })
     .then((order) => {
       res.status(201).json({ result: order });
@@ -17,27 +17,55 @@ exports.createOrder = (req, res) => {
     });
 };
 
-// Get all orders
+// Get all orders with employee's first name as employeeName
 exports.getOrders = (req, res) => {
-  Order.findAll()
+  Order.findAll({
+    include: {
+      model: Employee,
+      attributes: ["firstName"],
+      as: "employee",
+    },
+    raw: true, // Get raw data instead of Sequelize instances
+    nest: true, // Nest the data in the required structure
+  })
     .then((orders) => {
-      res.status(200).json({ result: orders });
+      const modifiedOrders = orders.map((order) => {
+        return {
+          ...order,
+          employeeName: order.employee.firstName,
+        };
+      });
+      delete modifiedOrders[0].employee; // Remove the employee object
+      res.status(200).json({ result: modifiedOrders });
     })
     .catch((error) => {
       res.status(500).json({ result: error });
     });
 };
 
-// Get a single order by ID
+// Get a single order by ID with employee's first name as employeeName
 exports.getOrderById = (req, res) => {
   const orderId = req.params.id;
 
-  Order.findByPk(orderId)
+  Order.findByPk(orderId, {
+    include: {
+      model: Employee,
+      attributes: ["firstName"],
+      as: "employee",
+    },
+    raw: true, // Get raw data instead of Sequelize instances
+    nest: true, // Nest the data in the required structure
+  })
     .then((order) => {
       if (!order) {
         res.status(404).json({ result: "Order not found" });
       } else {
-        res.status(200).json({ result: order });
+        const modifiedOrder = {
+          ...order,
+          employeeName: order.employee.firstName,
+        };
+        delete modifiedOrder.employee; // Remove the employee object
+        res.status(200).json({ result: modifiedOrder });
       }
     })
     .catch((error) => {
@@ -45,16 +73,43 @@ exports.getOrderById = (req, res) => {
     });
 };
 
+// Get orders by status
+exports.getOrdersByStatus = (req, res) => {
+  const { status } = req.params;
+
+  Order.findAll({
+    where: { status },
+    include: {
+      model: Employee,
+      attributes: ["firstName"],
+      as: "employee",
+    },
+    raw: true,
+    nest: true,
+  })
+    .then((orders) => {
+      const modifiedOrders = orders.map((order) => {
+        return {
+          ...order,
+          employeeName: order.employee.firstName,
+        };
+      });
+      delete modifiedOrders[0].employee;
+      res.status(200).json({ result: modifiedOrders });
+    })
+    .catch((error) => {
+      res.status(500).json({ result: error });
+    });
+};
 // Update an order
 exports.updateOrder = (req, res) => {
   const orderId = req.params.id;
-  const { employee_id, order_date, order_total } = req.body;
+  const { employee_id, order_date } = req.body;
 
   Order.update(
     {
       employee_id,
       order_date,
-      order_total,
     },
     {
       where: { id: orderId },
@@ -84,6 +139,31 @@ exports.deleteOrder = (req, res) => {
         res.status(404).json({ result: "Order not found" });
       } else {
         res.status(200).json({ result: "Order deleted successfully" });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({ result: error });
+    });
+};
+
+// Update order status
+exports.updateOrderStatus = (req, res) => {
+  const orderId = req.params.id;
+  const { status } = req.body;
+
+  Order.update(
+    {
+      status,
+    },
+    {
+      where: { id: orderId },
+    }
+  )
+    .then((result) => {
+      if (result[0] === 0) {
+        res.status(404).json({ result: "Order not found" });
+      } else {
+        res.status(200).json({ result: "Order status updated successfully" });
       }
     })
     .catch((error) => {

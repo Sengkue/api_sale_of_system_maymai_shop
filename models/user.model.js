@@ -13,11 +13,11 @@ const User = sequelize.define(
       primaryKey: true,
     },
     employee_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       allowNull: true,
     },
     owner_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       allowNull: true,
     },
     phone: {
@@ -26,12 +26,11 @@ const User = sequelize.define(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false, // Disallow null values
+      allowNull: false,
     },
     status: {
-      type: DataTypes.STRING, // Adjust the data type as per your requirements
+      type: DataTypes.STRING,
       allowNull: false,
-      // defaultValue: "active", // Set a default value if needed
     },
   },
   {
@@ -40,7 +39,7 @@ const User = sequelize.define(
   }
 );
 
-User.belongsTo(Employee, { foreignKey: 'employee_id', as: 'employee' });
-User.belongsTo(Owner, { foreignKey: 'owner_id', as: 'owner' });
+User.belongsTo(Employee, { foreignKey: "employee_id", as: "employee", onDelete: 'SET NULL', onUpdate: 'CASCADE' });
+User.belongsTo(Owner, { foreignKey: "owner_id", as: "owner", onDelete: 'SET NULL', onUpdate: 'CASCADE' });
 
 module.exports = User;

@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Import = require("./import.model");
+const Product = require("./product.model");
 
 const ImportDetail = sequelize.define(
   "ImportDetail",
@@ -12,14 +14,14 @@ const ImportDetail = sequelize.define(
     },
     product_id: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     import_id: {
-      type: DataTypes.UUID,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     Imp_price: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     Imp_quantity: {
@@ -30,8 +32,11 @@ const ImportDetail = sequelize.define(
   {
     sequelize,
     tableName: "import_details",
-    timestamps: false,
+    timestamps: true,
   }
 );
+
+ImportDetail.belongsTo(Import, { foreignKey: "import_id", onDelete: "CASCADE", onUpdate: "CASCADE" });
+ImportDetail.belongsTo(Product, { foreignKey: "product_id", as: "product", onDelete: "CASCADE", onUpdate: "CASCADE" });
 
 module.exports = ImportDetail;

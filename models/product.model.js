@@ -1,5 +1,8 @@
-const DataTypes = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Category = require("./category.model");
+const Supplier = require("./supplier.model");
+
 const Product = sequelize.define(
   "products",
   {
@@ -9,47 +12,50 @@ const Product = sequelize.define(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
+    category_id: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    category: {
-      type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    sale_price: { // Add the 'sale_price' column
-      type: DataTypes.FLOAT, // Modify the data type as per your requirements
-      allowNull: false,
-    },
-    cost_price: { // Add the 'cost_price' column
-      type: DataTypes.FLOAT, // Modify the data type as per your requirements
-      allowNull: false,
-    },
-    Barcode: { // Add the 'Barcode' column
-      type: DataTypes.STRING, // Modify the data type as per your requirements
+    sale_price: {
+      type: DataTypes.FLOAT,
       allowNull: true,
     },
-    supplier_id: { // Add the 'supplier_id' column
-      type: DataTypes.STRING, // Modify the data type as per your requirements
+    cost_price: {
+      type: DataTypes.FLOAT,
       allowNull: true,
     },
-    profile: { // Add the 'profile' column
-      type: DataTypes.STRING, // Modify the data type as per your requirements
+    Barcode: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
-    quantity: { // Add the 'quantity' column
-      type: DataTypes.INTEGER, // Modify the data type as per your requirements
-      allowNull: false,
-      defaultValue: 0,
+    supplier_id: {
+      type: DataTypes.UUID,
+      allowNull: true,
     },
-    size_id: { // Add the 'quantity' column
-      type: DataTypes.INTEGER, // Modify the data type as per your requirements
+    profile: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 0,
+    },
+    size_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    color: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
@@ -57,5 +63,8 @@ const Product = sequelize.define(
     timestamps: true,
   }
 );
+
+Product.belongsTo(Category, { foreignKey: "category_id", as: "category" });
+Product.belongsTo(Supplier, { foreignKey: "supplier_id", as: "supplier" });
 
 module.exports = Product;

@@ -14,7 +14,7 @@ const Category = sequelize.define(
     category: {
       type: DataTypes.STRING,
       // allowNull defaults to true
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

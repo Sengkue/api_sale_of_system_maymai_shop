@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+
 exports.create = async (req, res) => {
   try {
     const { employee_id, owner_id, phone, password, status } = req.body;
@@ -14,14 +15,15 @@ exports.create = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ result: 'User with the same phone number already exists!' });
     }
+
     const hashedPassword = await bcrypt.hash(password, 5);
 
     const user = {
-      employee_id,
-      owner_id,
+      employee_id: employee_id || null,
+      owner_id: owner_id || null,
       phone,
       password: hashedPassword,
-      status: status // Set the desired status value
+      status: status || 'user' // Set the desired status value or use a default value
     };
 
     const createdUser = await User.create(user);
@@ -32,6 +34,7 @@ exports.create = async (req, res) => {
   }
 };
 
+
 exports.login = async (req, res) => {
   const { phone, password } = req.body;
 
@@ -39,8 +42,8 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ 
       where: { phone: phone },
       include: [
-        { model: Employee, as: 'employee', attributes: ['firstName'] },
-        { model: Owner, as: 'owner', attributes: ['firstName'] }
+        { model: Employee, as: 'employee', attributes: ['firstName','id'] },
+        { model: Owner, as: 'owner', attributes: ['firstName','id'] }
       ]
     });
 
@@ -52,13 +55,17 @@ exports.login = async (req, res) => {
         // Extract first names from employee and owner if available
         const employeeFirstName = user.employee ? user.employee.firstName : null;
         const ownerFirstName = user.owner ? user.owner.firstName : null;
+        const employeeId = user.employee ? user.employee.id : null;
+        const ownerId = user.owner ? user.owner.id : null;
 
         return res.status(200).json({ 
           result: 'Login successful!', 
           token: token, 
           status: user.status,
           employeeFirstName: employeeFirstName,
-          ownerFirstName: ownerFirstName
+          ownerFirstName: ownerFirstName,
+          employee_id: employeeId,
+          owner_id: ownerId
         });
       }
     }

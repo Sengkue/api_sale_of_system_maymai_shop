@@ -8,6 +8,9 @@ router.post("/", importDetailController.createImportDetail);
 // Get all Import Details
 router.get("/", importDetailController.getImportDetail);
 
+// Get Import Details by Import ID
+router.get("/import/:import_id", importDetailController.getImportDetailsByImportId);
+
 // Get a single Import Detail by ID
 router.get("/:id", importDetailController.getImportDetailById);
 
