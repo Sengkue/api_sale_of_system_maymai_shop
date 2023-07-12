@@ -1,9 +1,10 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/db");
-const Product = require("./product.model");
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+const Product = require('./product.model');
+const Sale = require('./sale.model');
 
 const SaleDetail = sequelize.define(
-  "sale_details",
+  'SaleDetail',
   {
     id: {
       type: DataTypes.UUID,
@@ -13,35 +14,30 @@ const SaleDetail = sequelize.define(
     },
     sale_id: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     product_id: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     sale_price: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    name: { // Include the 'name' attribute from the associated Product model
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    category: { // Include the 'category' attribute from the associated Product model
-      type: DataTypes.UUID,
       allowNull: true,
     },
   },
   {
     sequelize,
     timestamps: true,
+    modelName: 'SaleDetail',
+    tableName: 'sale_details',
   }
 );
 
-SaleDetail.belongsTo(Product, { foreignKey: "product_id" }); // Establish the association
+SaleDetail.belongsTo(Product, { foreignKey: 'product_id' });
+SaleDetail.belongsTo(Sale, { foreignKey: 'sale_id' });
 
 module.exports = SaleDetail;
