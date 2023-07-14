@@ -13,7 +13,7 @@ const District = sequelize.define(
     },
     provinceId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: null,
       references: {
         model: Province,
         key: 'id',
@@ -21,7 +21,7 @@ const District = sequelize.define(
     },
     districtName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: null,
     },
   },
   {

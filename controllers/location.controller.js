@@ -33,7 +33,7 @@ exports.getLocationById = async (req, res) => {
 
 exports.updateLocation = async (req, res) => {
   const id = req.params.id;
-  const { province, district, village, address, express, customer_id } = req.body;
+  const { province, district, village, address, express, customer_id, recipient, phone } = req.body;
 
   try {
     const location = await Location.findByPk(id);
@@ -48,6 +48,8 @@ exports.updateLocation = async (req, res) => {
       address,
       express,
       customer_id,
+      recipient,
+      phone,
     });
 
     return res.status(200).json({ message: 'Location updated successfully' });
@@ -55,6 +57,7 @@ exports.updateLocation = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
+
 
 
 exports.deleteLocation = async (req, res) => {

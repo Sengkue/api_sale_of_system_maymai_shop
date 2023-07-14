@@ -13,23 +13,31 @@ const Location = sequelize.define(
     },
     province: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     district: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     village: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     express: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+    recipient: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    phone: {
+      type: DataTypes.INTEGER, // Change the data type to INTEGER
+      allowNull: true,
     },
     customer_id: {
       type: DataTypes.UUID,

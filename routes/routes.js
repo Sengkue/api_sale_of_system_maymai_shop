@@ -13,14 +13,14 @@ const Province = require('./province.routes');
 const district = require('./district.routes');
 const supplierRoutes = require('./supplier.routes');
 const promotion = require('./promotion.routes');
-const size = require('./size.routes');
+// const size = require('./size.routes');
 const sale = require('./sale.routes');
 const sale_detail = require('./sale_detail.routes');
 const Import = require('./import.routes');
 const Import_detail = require('./import_detail.routes');
 const order = require('./order.routes');
 const order_detail = require('./order_detail.routes');
-const imageSlide = require('./image_slides.routes');
+// const imageSlide = require('./image_slides.routes');
 
 route.use('/category', category);
 route.use('/product', product);
@@ -36,13 +36,13 @@ route.use('/province', Province);
 route.use('/district', district);
 route.use('/supplier', supplierRoutes);
 route.use('/promotion', promotion);
-route.use('/size', size);
+// route.use('/size', size);
 route.use('/sale', sale)
 route.use('/saleDetail', sale_detail)
 route.use('/import', Import)
 route.use('/import_detail',Import_detail)
 route.use('/order',order)
 route.use('/order_detail',order_detail)
-route.use('/slide', imageSlide)
+// route.use('/slide', imageSlide)
 
 module.exports = route;

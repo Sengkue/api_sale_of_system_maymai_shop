@@ -1,8 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Product = require("./product.model");
 
-const Images = sequelize.define(
-  "Images",
+const Image = sequelize.define(
+  "Image",
   {
     id: {
       type: DataTypes.UUID,
@@ -12,7 +13,7 @@ const Images = sequelize.define(
     },
     productId: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     url: {
       type: DataTypes.STRING,
@@ -26,9 +27,11 @@ const Images = sequelize.define(
   {
     sequelize,
     timestamps: true,
-    modelName: "Images",
+    modelName: "Image",
     tableName: "images",
   }
 );
 
-module.exports = Images;
+Image.belongsTo(Product, { foreignKey: 'productId' });
+
+module.exports = Image;

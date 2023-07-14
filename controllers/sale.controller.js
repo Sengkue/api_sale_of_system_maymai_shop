@@ -2,6 +2,7 @@ const Sale = require('../models/sale.model');
 const Promotion = require('../models/promotion.model');
 const Customer = require('../models/customer.model');
 const Employee = require('../models/employee.model');
+const Location = require('../models/location.model');
 
 exports.getAllSales = (req, res) => {
   Sale.findAll({
@@ -154,9 +155,9 @@ exports.getSaleById = (req, res) => {
 
 
 exports.createSale = (req, res) => {
-  const { customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity } = req.body;
+  const { customer_id, promotion_id, employee_id,location_id, payment, sale_date, sale_total, sale_type, sale_status, sale_quantity } = req.body;
 
-  Sale.create({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity })
+  Sale.create({ customer_id, promotion_id, employee_id, location_id, payment, sale_date, sale_total, sale_type, sale_status, sale_quantity })
     .then((sale) => {
       res.status(201).json({ result: sale });
     })
@@ -174,6 +175,29 @@ exports.updateSale = (req, res) => {
         if (sale) {
           sale
             .update({ customer_id, promotion_id, employee_id, sale_date, sale_total, sale_type, sale_status, sale_quantity })
+            .then((updatedSale) => {
+              res.status(200).json({ result: updatedSale });
+            })
+            .catch((error) => {
+              res.status(500).json({ error: error.message });
+            });
+        } else {
+          res.status(404).json({ result: 'Sale not found' });
+        }
+      })
+      .catch((error) => {
+        res.status(500).json({ error: error.message });
+      });
+  };
+  exports.updateSaleStatus = (req, res) => {
+    const { id } = req.params;
+    const { sale_status } = req.body;
+  
+    Sale.findByPk(id)
+      .then((sale) => {
+        if (sale) {
+          sale
+            .update({ sale_status })
             .then((updatedSale) => {
               res.status(200).json({ result: updatedSale });
             })
@@ -353,6 +377,92 @@ exports.getSalesByStatusAndType = (req, res) => {
       });
 
       res.status(200).json({ result: formattedSales });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+};
+
+exports.getSaleOnlineById = (req, res) => {
+  const { id } = req.params;
+
+  Sale.findByPk(id, {
+    include: [
+      {
+        model: Promotion,
+        as: 'promotion',
+        attributes: ['name', 'condition', 'discount'],
+      },
+      {
+        model: Customer,
+        as: 'customer',
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+      },
+      {
+        model: Employee,
+        as: 'employee',
+        attributes: ['firstName'],
+      },
+      {
+        model: Location,
+        as: 'location',
+        attributes: { exclude: ['createdAt', 'updatedAt','customer_id'] },
+      },
+    ],
+  })
+    .then((sale) => {
+      if (sale) {
+        const {
+          id,
+          customer_id,
+          promotion_id,
+          employee_id,
+          sale_date,
+          sale_total,
+          sale_type,
+          sale_status,
+          sale_quantity,
+          payment,
+          createdAt,
+          updatedAt,
+          promotion,
+          customer,
+          employee,
+          location,
+        } = sale;
+
+        const promotionName = promotion ? promotion.name : null;
+        const promotionCondition = promotion ? promotion.condition : null;
+        const promotionDiscount = promotion ? promotion.discount : null;
+        const customerData = customer ? customer.toJSON() : null;
+        const employeeName = employee ? employee.firstName : null;
+        const locationData = location ? location.toJSON() : null;
+
+        res.status(200).json({
+          result: {
+            id,
+            customer_id,
+            promotion_id,
+            employee_id,
+            sale_date,
+            sale_total,
+            sale_type,
+            sale_status,
+            sale_quantity,
+            payment,
+            createdAt,
+            updatedAt,
+            promotionName,
+            promotionCondition,
+            promotionDiscount,
+            customer: customerData,
+            employeeName,
+            location: locationData, // Include all fields from the location model
+          },
+        });
+      } else {
+        res.status(404).json({ result: 'Sale not found' });
+      }
     })
     .catch((error) => {
       res.status(500).json({ error: error.message });
