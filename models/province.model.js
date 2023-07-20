@@ -11,11 +11,11 @@ const Province = sequelize.define(
     },
     provinceName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
-    timestamps: false,
+    timestamps: true,
     tableName: "provinces",
   }
 );

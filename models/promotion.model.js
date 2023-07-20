@@ -11,15 +11,15 @@ const Promotion = sequelize.define(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     condition: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     discount: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

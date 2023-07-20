@@ -22,11 +22,11 @@ const ImportDetail = sequelize.define(
     },
     Imp_price: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     Imp_quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

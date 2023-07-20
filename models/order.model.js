@@ -26,7 +26,7 @@ const Order = sequelize.define(
     },
     order_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

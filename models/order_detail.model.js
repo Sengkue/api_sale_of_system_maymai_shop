@@ -14,15 +14,15 @@ const OrderDetail = sequelize.define(
     },
     product_id: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     order_quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     order_id: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

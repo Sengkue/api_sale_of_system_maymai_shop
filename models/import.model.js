@@ -22,7 +22,7 @@ const Import = sequelize.define(
     },
     receive_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     employee_id: {
       type: DataTypes.UUID,

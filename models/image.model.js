@@ -17,7 +17,7 @@ const Image = sequelize.define(
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     altText: {
       type: DataTypes.STRING,

@@ -14,15 +14,15 @@ const Employee = sequelize.define(
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     profile: {
       type: DataTypes.STRING,
@@ -40,6 +40,22 @@ const Employee = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    provinceId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: Province,
+        key: "id",
+      },
+    },
+    districtId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: District,
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
@@ -48,7 +64,7 @@ const Employee = sequelize.define(
 );
 
 // Define associations
-Employee.belongsTo(Province, { foreignKey: 'provinceId' });
-Employee.belongsTo(District, { foreignKey: 'districtId' });
+Employee.belongsTo(Province, { foreignKey: 'provinceId', allowNull: true });
+Employee.belongsTo(District, { foreignKey: 'districtId', allowNull: true });
 
 module.exports = Employee;

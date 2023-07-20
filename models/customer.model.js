@@ -16,11 +16,11 @@ const Customer = sequelize.define(
     },
     c_fname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     c_lname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     c_gender: {
       type: DataTypes.STRING,
