@@ -236,3 +236,48 @@ exports.subtractImportQuantity = async (req, res) => {
     return res.status(500).json({ result: error });
   }
 };
+// ______select by quantity more to less to show stock product _________
+exports.getProductsByQuantity = (req, res) => {
+  sequelize
+    .query(
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.size_id, pr.color, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name,
+      ca.id AS category_id, sup.id AS supplier_id
+      FROM products pr
+      INNER JOIN categories ca ON pr.category_id = ca.id
+      INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
+      ORDER BY pr.quantity ASC`,
+      { type: QueryTypes.SELECT }
+    )
+    .then((data) => {
+      if (data.length === 0) {
+        return res.status(404).json({ result: 'No products found' });
+      }
+      return res.status(200).json({ result: data });
+    })
+    .catch((error) => {
+      return res.status(500).json({ result: error });
+    });
+};
+// ____________________select product almost out of stock______________________
+exports.getProductsAlmostOutOfStock = (req, res) => {
+  sequelize
+    .query(
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.size_id, pr.color, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name,
+      ca.id AS category_id, sup.id AS supplier_id
+      FROM products pr
+      INNER JOIN categories ca ON pr.category_id = ca.id
+      INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
+      WHERE pr.quantity BETWEEN 1 AND 20
+      ORDER BY pr.quantity ASC`,
+      { type: QueryTypes.SELECT }
+    )
+    .then((data) => {
+      if (data.length === 0) {
+        return res.status(404).json({ result: 'No products almost out of stock' });
+      }
+      return res.status(200).json({ result: data });
+    })
+    .catch((error) => {
+      return res.status(500).json({ result: error });
+    });
+};
