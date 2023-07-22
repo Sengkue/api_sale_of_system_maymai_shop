@@ -42,7 +42,7 @@ exports.createSaleDetail = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
-
+// ______________update saleDetail______________
 exports.updateSaleDetail = (req, res) => {
   const { id } = req.params;
   const { sale_id, product_id, sale_price, quantity} = req.body;
@@ -66,7 +66,7 @@ exports.updateSaleDetail = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
-
+// ________________delete saleDetail____________________
 exports.deleteSaleDetail = (req, res) => {
   const { id } = req.params;
 
@@ -78,7 +78,7 @@ exports.deleteSaleDetail = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
-
+// ___________________get saleDetail by id_____________________
 exports.getSaleDetailsBySaleId = (req, res) => {
   const { sale_id } = req.params;
 
@@ -160,6 +160,7 @@ exports.getSaleDetailsBySaleId = (req, res) => {
       return res.status(500).json({ result: error.message });
     });
 };
+// ________________get sale detail summary____________________
 exports.getSaleDetailSummary = (req, res) => {
   SaleDetail.findAll({
     attributes: [
@@ -175,7 +176,7 @@ exports.getSaleDetailSummary = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
-
+// __________________________get Sale Detail Summary Group________________________
 exports.getSaleDetailSummaryGroup = (req, res) => {
   const limit = req.query.limit || 10; // Set the default limit to 10, or you can modify it as per your requirement
 
@@ -226,7 +227,6 @@ exports.getSaleDetailSummaryGroup = (req, res) => {
     });
 };
 // _______________________ select sale SaleDetail. in month_______________
-// exports.getSaleDetailSummaryByMonth
 exports.getSaleDetailSummaryByMonth = (req, res) => {
   const { month, year, limit } = req.query;
 

@@ -267,7 +267,7 @@ exports.getProductsAlmostOutOfStock = (req, res) => {
       FROM products pr
       INNER JOIN categories ca ON pr.category_id = ca.id
       INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
-      WHERE pr.quantity BETWEEN 1 AND 20
+      WHERE pr.quantity BETWEEN 0 AND 20
       ORDER BY pr.quantity ASC`,
       { type: QueryTypes.SELECT }
     )

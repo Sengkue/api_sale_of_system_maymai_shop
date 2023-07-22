@@ -6,6 +6,9 @@ const importDetailController = require("../controllers/Import_detail.controller"
 router.post("/", importDetailController.createImportDetail);
 
 // Get all Import Details
+router.get("/income-expenses", importDetailController.getIncomeAndExpensesSummaryByMonth);
+router.get("/income-expenses-date-range", importDetailController.getIncomeAndExpensesSummaryByDateRange);
+
 router.get("/", importDetailController.getImportDetail);
 
 // Get Import Details by Import ID
