@@ -22,8 +22,16 @@ exports.getSalesByStatusTypeAndDateRange = (req, res) => {
 
   // Add date range condition if both startDate and endDate are provided
   if (startDate && endDate) {
+    // Convert startDate to the start of the day (00:00:00)
+    const startOfDay = new Date(startDate);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    // Convert endDate to the end of the day (23:59:59)
+    const endOfDay = new Date(endDate);
+    endOfDay.setHours(23, 59, 59, 999);
+
     whereClause.sale_date = {
-      [Op.between]: [new Date(startDate), new Date(endDate)],
+      [Op.between]: [startOfDay, endOfDay],
     };
   }
 
@@ -99,6 +107,7 @@ exports.getSalesByStatusTypeAndDateRange = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+
 // ______________________________select all_______________
 exports.getAllSales = (req, res) => {
   Sale.findAll({

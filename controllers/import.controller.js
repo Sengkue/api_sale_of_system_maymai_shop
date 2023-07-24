@@ -3,7 +3,8 @@ const Employee = require("../models/employee.model");
 
 exports.getAllImports = (req, res) => {
   Import.findAll({
-    include: [{ model: Employee, as: 'employee', attributes: ['firstName'] }]
+    include: [{ model: Employee, as: 'employee', attributes: ['firstName'] }],
+    order: [['createdAt', 'DESC']] // Order by createdAt column in descending order
   })
     .then((imports) => {
       const formattedImports = imports.map((importData) => ({
@@ -12,7 +13,7 @@ exports.getAllImports = (req, res) => {
         employee_id: importData.employee_id,
         createdAt: importData.createdAt,
         updatedAt: importData.updatedAt,
-        employeefirstName: importData.employee.firstName
+        employeefirstName: importData.employee ? importData.employee.firstName : null
       }));
 
       res.status(200).json({ result: formattedImports });
@@ -21,6 +22,8 @@ exports.getAllImports = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+
+
 exports.getImportById = (req, res) => {
   const { id } = req.params;
 

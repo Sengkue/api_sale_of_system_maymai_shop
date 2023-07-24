@@ -11,6 +11,14 @@ exports.getMostImportedProductByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;
 
   try {
+    // Convert startDate to the start of the day (00:00:00)
+    const startOfDay = new Date(startDate);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    // Convert endDate to the end of the day (23:59:59)
+    const endOfDay = new Date(endDate);
+    endOfDay.setHours(23, 59, 59, 999);
+
     const mostImportedProducts = await ImportDetail.findAll({
       attributes: [
         [sequelize.col("product_id"), "product_id"],
@@ -28,7 +36,7 @@ exports.getMostImportedProductByDateRange = async (req, res) => {
       where: {
         [Op.and]: [
           sequelize.where(sequelize.col("ImportDetail.createdAt"), {
-            [Op.between]: [startDate, endDate],
+            [Op.between]: [startOfDay, endOfDay],
           }),
         ],
       },
@@ -55,6 +63,7 @@ exports.getMostImportedProductByDateRange = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 // _____________________select income and expenses by verery mount_____________________________
 exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;

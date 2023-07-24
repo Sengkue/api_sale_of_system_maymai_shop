@@ -1,5 +1,6 @@
 const Order = require("../models/order.model");
 const Employee = require("../models/employee.model");
+const { Op } = require("sequelize");
 
 // Create a new order
 exports.createOrder = (req, res) => {
@@ -18,15 +19,24 @@ exports.createOrder = (req, res) => {
 };
 
 // Get all orders with employee's first name as employeeName
+
+
 exports.getOrders = (req, res) => {
+  const currentDate = new Date();
   Order.findAll({
+    where: {
+      order_date: {
+        [Op.lt]: currentDate, // Select orders with order_date before the current date and time
+      },
+    },
     include: {
       model: Employee,
       attributes: ["firstName"],
       as: "employee",
     },
-    raw: true, // Get raw data instead of Sequelize instances
-    nest: true, // Nest the data in the required structure
+    raw: true,
+    nest: true,
+    order: [["order_date", "DESC"]], // Order by order_date in descending order
   })
     .then((orders) => {
       const modifiedOrders = orders.map((order) => {
@@ -35,7 +45,7 @@ exports.getOrders = (req, res) => {
           employeeName: order.employee.firstName,
         };
       });
-      delete modifiedOrders[0].employee; // Remove the employee object
+      delete modifiedOrders[0].employee;
       res.status(200).json({ result: modifiedOrders });
     })
     .catch((error) => {
