@@ -7,7 +7,9 @@ router.post("/", importDetailController.createImportDetail);
 
 // Get all Import Details
 router.get("/income-expenses", importDetailController.getIncomeAndExpensesSummaryByMonth);
+router.get("/year-income-expenses", importDetailController.getIncomeAndExpensesSummaryByYear);
 router.get("/income-expenses-date-range", importDetailController.getIncomeAndExpensesSummaryByDateRange);
+router.get("/most-imported-product", importDetailController.getMostImportedProductByDateRange);
 
 router.get("/", importDetailController.getImportDetail);
 

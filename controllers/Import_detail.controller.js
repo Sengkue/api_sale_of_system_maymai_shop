@@ -2,9 +2,59 @@ const ImportDetail = require("../models/import_detail.model");
 const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 const Supplier = require("../models/supplier.model");
-const { Op } = require("sequelize");
+const { Op, literal } = require("sequelize");
 const sequelize = require("../config/db");
 const SaleDetail = require("../models/sale_detail.model"); // Assuming SaleDetail model exists
+
+// Modify this function to get the most imported product within a given date range
+exports.getMostImportedProductByDateRange = async (req, res) => {
+  const { startDate, endDate } = req.query;
+
+  try {
+    const mostImportedProducts = await ImportDetail.findAll({
+      attributes: [
+        [sequelize.col("product_id"), "product_id"],
+        [sequelize.fn("SUM", sequelize.col("Imp_quantity")), "totalQuantity"],
+        [literal("(SUM(Imp_price * Imp_quantity))"), "totalPrice"], // Calculate total price
+        [sequelize.col("ImportDetail.createdAt"), "createdAt"], // Include createdAt field
+      ],
+      include: [
+        {
+          model: Product,
+          as: "product",
+          attributes: ["name", "profile"],
+        },
+      ],
+      where: {
+        [Op.and]: [
+          sequelize.where(sequelize.col("ImportDetail.createdAt"), {
+            [Op.between]: [startDate, endDate],
+          }),
+        ],
+      },
+      group: ["product_id"],
+      order: [[sequelize.literal("totalQuantity"), "DESC"]], // Sort by totalQuantity in descending order
+    });
+
+    if (!mostImportedProducts || mostImportedProducts.length === 0) {
+      // No imports found within the date range
+      res.status(200).json({ result: "No imports found within the date range" });
+    } else {
+      const formattedProducts = mostImportedProducts.map((product) => ({
+        product_id: product.product_id,
+        name: product.product.name,
+        profile: product.product.profile,
+        totalQuantity: product.dataValues.totalQuantity,
+        totalPrice: product.dataValues.totalPrice,
+        createdAt: product.dataValues.createdAt, // Include createdAt field in the response
+      }));
+
+      res.status(200).json(formattedProducts);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 // _____________________select income and expenses by verery mount_____________________________
 exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;
@@ -190,6 +240,54 @@ exports.getIncomeAndExpensesSummaryByMonth = async (req, res) => {
 
     res.status(200).json({
       month,
+      year,
+      totalIncome,
+      totalExpenses,
+      profit,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+//_______________________select by year__________________________________
+
+// Define the getIncomeAndExpensesSummaryByYear function
+exports.getIncomeAndExpensesSummaryByYear = async (req, res) => {
+  const { year } = req.query;
+
+  try {
+    // Calculate Income (Revenue from Sales)
+    const incomeSummary = await SaleDetail.findAll({
+      attributes: [
+        [sequelize.fn("SUM", sequelize.col("sale_price")), "totalIncome"],
+      ],
+      where: {
+        createdAt: {
+          [Op.between]: [`${year}-01-01`, `${year}-12-31`],
+        },
+      },
+    });
+
+    const totalIncome = incomeSummary[0].dataValues.totalIncome || 0;
+
+    // Calculate Expenses (Total Cost of Imports)
+    const expensesSummary = await ImportDetail.findAll({
+      attributes: [
+        [sequelize.fn("SUM", sequelize.col("Imp_price")), "totalExpenses"],
+      ],
+      where: {
+        createdAt: {
+          [Op.between]: [`${year}-01-01`, `${year}-12-31`],
+        },
+      },
+    });
+
+    const totalExpenses = expensesSummary[0].dataValues.totalExpenses || 0;
+
+    // Calculate Profit (Income - Expenses)
+    const profit = totalIncome - totalExpenses;
+
+    res.status(200).json({
       year,
       totalIncome,
       totalExpenses,
