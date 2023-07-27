@@ -2,7 +2,53 @@ const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 const sequelize = require("../config/db");
 const { QueryTypes } = require('sequelize');
+exports.searchProducts = (req, res) => {
+  const keyword = req.query.keyword;
+  const maxPrice = parseFloat(req.query.price);
+  const categoryId = req.query.category;
+  const limit = req.query.limit ? parseInt(req.query.limit) : 10;
 
+  if (!keyword || keyword.trim() === "") {
+    return res.status(400).json({ result: "Please provide a valid search keyword" });
+  }
+
+  let whereClause = "";
+  let replacements = { searchKeyword: `%${keyword}%` };
+
+  if (maxPrice) {
+    whereClause += " AND pr.sale_price <= :maxPrice";
+    replacements = { ...replacements, maxPrice };
+  }
+
+  if (categoryId) {
+    whereClause += " AND pr.category_id = :categoryId";
+    replacements = { ...replacements, categoryId };
+  }
+
+  sequelize
+    .query(
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.size_id, pr.color, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name,
+      ca.id AS category_id, sup.id AS supplier_id
+      FROM products pr
+      INNER JOIN categories ca ON pr.category_id = ca.id
+      INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
+      WHERE (pr.name LIKE :searchKeyword OR pr.description LIKE :searchKeyword) ${whereClause}
+      LIMIT :limit`,
+      {
+        replacements: { ...replacements, limit },
+        type: QueryTypes.SELECT,
+      }
+    )
+    .then((data) => {
+      if (data.length === 0) {
+        return res.status(404).json({ result: "No products found for the specified search criteria" });
+      }
+      return res.status(200).json({ result: data });
+    })
+    .catch((error) => {
+      return res.status(500).json({ result: error });
+    });
+};
 exports.create = (req, res) => {
   Product.create({ ...req.body })
     .then((data) => {

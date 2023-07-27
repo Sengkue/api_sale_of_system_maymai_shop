@@ -63,7 +63,6 @@ exports.getMostImportedProductByDateRange = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 // _____________________select income and expenses by verery mount_____________________________
 exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;
@@ -145,7 +144,6 @@ exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 // ______________________select income an expenses by start day to end day_______________________
 // exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
 //   const { startDate, endDate } = req.query;
@@ -306,9 +304,7 @@ exports.getIncomeAndExpensesSummaryByYear = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 // ___________________________________create import detail ______________________
-
 exports.createImportDetail = (req, res) => {
   const { product_id, import_id, Imp_price, Imp_quantity } = req.body;
 

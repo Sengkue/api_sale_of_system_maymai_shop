@@ -387,6 +387,8 @@ exports.getPopularProduct = (req, res) => {
 
 // __________________select product hot top of sell ______________________
 exports.getHot = (req, res) => {
+  const limit = req.query.limit || 4; // Use the 'limit' query parameter if provided, otherwise default to 4
+
   SaleDetail.findAll({
     attributes: [
       'product_id',
@@ -395,6 +397,7 @@ exports.getHot = (req, res) => {
     ],
     group: ['product_id'],
     order: [[sequelize.literal('totalQuantity'), 'DESC']],
+    limit: parseInt(limit), // Convert the 'limit' to a number before using it
   })
     .then((summary) => {
       const productIds = summary.map((row) => row.product_id);
