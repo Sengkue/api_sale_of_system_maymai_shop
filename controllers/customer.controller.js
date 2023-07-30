@@ -47,7 +47,8 @@ exports.login = async (req, res) => {
         const payload = {
           id: customer.c_id,
           c_phone: customer.c_phone,
-          c_fname: customer.c_fname // Include c_fname in the payload
+          c_fname: customer.c_fname,
+          c_profile: customer.c_profile
         };
 
         const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '31d' });

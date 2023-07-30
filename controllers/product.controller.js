@@ -2,6 +2,8 @@ const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 const sequelize = require("../config/db");
 const { QueryTypes } = require('sequelize');
+
+
 exports.searchProducts = (req, res) => {
   const keyword = req.query.keyword;
   const maxPrice = parseFloat(req.query.price);
@@ -88,17 +90,20 @@ exports.getProductsBySupplierId = (req, res) => {
 
 exports.getProductsByCategoryId = (req, res) => {
   const { category_id } = req.params;
+  let limit = req.query.limit || 8; // Use 'limit' query parameter if provided, otherwise default to 8
+  limit = parseInt(limit, 10); // Convert 'limit' to a number
 
   sequelize
     .query(
-      `SELECT pr.profile, pr.id, pr.name, ca.category,pr.size_id, pr.color, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name,
+      `SELECT pr.profile, pr.id, pr.name, ca.category, pr.size_id, pr.color, pr.description, pr.quantity, pr.sale_price, pr.cost_price, pr.Barcode, pr.createdAt, pr.updatedAt, sup.name AS supplier_name,
       ca.id AS category_id, sup.id AS supplier_id
       FROM products pr
       INNER JOIN categories ca ON pr.category_id = ca.id
       INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
-      WHERE ca.id = :category_id`,
+      WHERE ca.id = :category_id
+      LIMIT :limit`, // Add the LIMIT clause here
       {
-        replacements: { category_id },
+        replacements: { category_id, limit }, // Include the limit in replacements
         type: QueryTypes.SELECT,
       }
     )
@@ -114,7 +119,7 @@ exports.getProductsByCategoryId = (req, res) => {
 };
 
 exports.findByLimit = (req, res) => {
-  const limit = req.query.limit || 10; // Default limit is 10, but you can change it as needed
+  const limit = req.query.limit || 8; // Default limit is 10, but you can change it as needed
 
   sequelize
     .query(
@@ -185,10 +190,12 @@ exports.findOne = (req, res) => {
       return res.status(500).json({ result: error });
     });
 };
-
 exports.update = (req, res) => {
   const id = req.params.id;
   const updatedProduct = { ...req.body };
+
+  // Make sure the correct key name is used for the category_id field
+  updatedProduct.category_id = req.body.category;
 
   Product.update(updatedProduct, { where: { id: id } })
     .then((result) => {
@@ -204,7 +211,6 @@ exports.update = (req, res) => {
       return res.status(500).json({ result: error });
     });
 };
-
 
 exports.delete = (req, res) => {
   const id = req.params.id;

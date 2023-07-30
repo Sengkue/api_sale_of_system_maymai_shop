@@ -4,7 +4,6 @@ const sequelize = require("../config/db");
 const Category = sequelize.define(
   "categories",
   {
-    // Model attributes are defined here
     id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -13,7 +12,6 @@ const Category = sequelize.define(
     },
     category: {
       type: DataTypes.STRING,
-      // allowNull defaults to true
       allowNull: true,
     },
   },
