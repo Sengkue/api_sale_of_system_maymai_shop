@@ -82,9 +82,9 @@ exports.getImportById = (req, res) => {
 };
 
 exports.createImport = (req, res) => {
-  const { receive_date, employee_id } = req.body; // Add 'employee_id' field
+  const { receive_date, employee_id, total_price, total_quantity } = req.body; // Add 'employee_id' field
 
-  Import.create({  receive_date, employee_id })
+  Import.create({  receive_date, employee_id, total_price, total_quantity })
     .then((createdImport) => {
       res.status(201).json({ result: createdImport });
     })

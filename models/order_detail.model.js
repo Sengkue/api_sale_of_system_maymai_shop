@@ -24,6 +24,14 @@ const OrderDetail = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    color: { // Add the 'color' field
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    size: { // Add the 'size' field
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,

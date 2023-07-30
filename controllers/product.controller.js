@@ -2,8 +2,6 @@ const Product = require("../models/product.model");
 const Category = require("../models/category.model");
 const sequelize = require("../config/db");
 const { QueryTypes } = require('sequelize');
-
-
 exports.searchProducts = (req, res) => {
   const keyword = req.query.keyword;
   const maxPrice = parseFloat(req.query.price);
@@ -190,12 +188,12 @@ exports.findOne = (req, res) => {
       return res.status(500).json({ result: error });
     });
 };
+
 exports.update = (req, res) => {
   const id = req.params.id;
   const updatedProduct = { ...req.body };
-
-  // Make sure the correct key name is used for the category_id field
-  updatedProduct.category_id = req.body.category;
+  console.log("Product ID:", id);
+  console.log("Updated Product:", updatedProduct);
 
   Product.update(updatedProduct, { where: { id: id } })
     .then((result) => {
@@ -211,6 +209,7 @@ exports.update = (req, res) => {
       return res.status(500).json({ result: error });
     });
 };
+
 
 exports.delete = (req, res) => {
   const id = req.params.id;

@@ -28,6 +28,14 @@ const Import = sequelize.define(
       type: DataTypes.UUID,
       allowNull: true, // Change the allowNull to true if the employee_id can be optional
     },
+    total_price: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    total_quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   },
   {
     sequelize,

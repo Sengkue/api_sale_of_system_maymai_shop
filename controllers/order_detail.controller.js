@@ -5,12 +5,14 @@ const Category = require("../models/category.model");
 
 // Create a new order detail
 exports.createOrderDetail = (req, res) => {
-  const { product_id, order_quantity, order_id } = req.body;
+  const { product_id, order_quantity, order_id, color, size } = req.body; // Include color and size from the request body
 
   OrderDetail.create({
     product_id,
     order_quantity,
     order_id,
+    color, // Save the color field to the database
+    size, // Save the size field to the database
   })
     .then((orderDetail) => {
       res.status(201).json({ result: orderDetail });
@@ -99,13 +101,15 @@ exports.getOrderDetailById = (req, res) => {
 // Update an order detail
 exports.updateOrderDetail = (req, res) => {
   const orderDetailId = req.params.id;
-  const { product_id, order_quantity, order_id } = req.body;
+  const { product_id, order_quantity, order_id, color, size } = req.body; // Include color and size from the request body
 
   OrderDetail.update(
     {
       product_id,
       order_quantity,
       order_id,
+      color, // Update the color field in the database
+      size, // Update the size field in the database
     },
     {
       where: { id: orderDetailId },
@@ -177,10 +181,12 @@ exports.getOrderDetailsByOrderId = (req, res) => {
             sale_price,
             cost_price,
             profile,
-            color,
-            size_id,
+            // color,
+            // size_id,
             category: { category: categoryName },
           },
+          color, // Include the color field
+          size, // Include the size field
         } = orderDetail;
 
         return {
@@ -197,7 +203,8 @@ exports.getOrderDetailsByOrderId = (req, res) => {
           profile,
           categoryName,
           color,
-          size_id
+          // size_id,
+          size,
         };
       });
 
