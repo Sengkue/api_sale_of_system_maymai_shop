@@ -58,7 +58,6 @@ exports.create = (req, res) => {
       return res.status(200).json({ result: error });
     });
 };
-
 exports.getProductsBySupplierId = (req, res) => {
   const { supplier_id } = req.params;
 
@@ -69,7 +68,8 @@ exports.getProductsBySupplierId = (req, res) => {
       FROM products pr
       INNER JOIN categories ca ON pr.category_id = ca.id
       INNER JOIN Suppliers sup ON pr.supplier_id = sup.id
-      WHERE pr.supplier_id = :supplier_id`,
+      WHERE pr.supplier_id = :supplier_id
+      ORDER BY pr.quantity ASC`, // Added ORDER BY clause to sort by quantity in ascending order
       {
         replacements: { supplier_id },
         type: QueryTypes.SELECT,
@@ -85,6 +85,7 @@ exports.getProductsBySupplierId = (req, res) => {
       return res.status(500).json({ result: error });
     });
 };
+
 
 exports.getProductsByCategoryId = (req, res) => {
   const { category_id } = req.params;

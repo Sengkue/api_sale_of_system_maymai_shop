@@ -32,11 +32,23 @@ exports.getSaleDetailById = (req, res) => {
 };
 
 exports.createSaleDetail = (req, res) => {
-  const { sale_id, product_id, sale_price, quantity} = req.body;
+  const { sale_id,color_size_id, product_id, sale_price, quantity, color, size } = req.body;
 
-  SaleDetail.create({ sale_id, product_id, sale_price, quantity })
-    .then((createdSaleDetail) => {
-      res.status(201).json({ result: createdSaleDetail });
+  // Check if the product_id provided exists in the products table
+  Product.findByPk(product_id)
+    .then((product) => {
+      if (!product) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+
+      // Product exists, create the SaleDetail record
+      SaleDetail.create({ sale_id, color_size_id, product_id, sale_price, quantity, color, size })
+        .then((createdSaleDetail) => {
+          res.status(201).json({ result: createdSaleDetail });
+        })
+        .catch((error) => {
+          res.status(500).json({ error: error.message });
+        });
     })
     .catch((error) => {
       res.status(500).json({ error: error.message });
@@ -45,13 +57,13 @@ exports.createSaleDetail = (req, res) => {
 // ______________update saleDetail______________
 exports.updateSaleDetail = (req, res) => {
   const { id } = req.params;
-  const { sale_id, product_id, sale_price, quantity} = req.body;
+  const { sale_id, color_size_id, product_id, sale_price, quantity, color, size } = req.body;
 
   SaleDetail.findByPk(id)
     .then((saleDetail) => {
       if (saleDetail) {
         saleDetail
-          .update({ sale_id, product_id, sale_price, quantity})
+          .update({ sale_id, color_size_id, product_id, sale_price, quantity, color, size })
           .then((updatedSaleDetail) => {
             res.status(200).json({ result: updatedSaleDetail });
           })
@@ -66,6 +78,7 @@ exports.updateSaleDetail = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+
 // ________________delete saleDetail____________________
 exports.deleteSaleDetail = (req, res) => {
   const { id } = req.params;
@@ -120,15 +133,16 @@ exports.getSaleDetailsBySaleId = (req, res) => {
         const {
           id,
           sale_id,
+          color_size_id,
           sale_price,
           quantity,
+          color,
+          size,
           product: {
             id: product_id,
             name: productName,
             description: productDescription,
             profile,
-            color,
-            size_id,
             category: { category: categoryName },
             supplier: { name: supplierName },
           },
@@ -139,6 +153,7 @@ exports.getSaleDetailsBySaleId = (req, res) => {
         return {
           id,
           sale_id,
+          color_size_id,
           product_id,
           productName,
           productDescription,
@@ -148,7 +163,7 @@ exports.getSaleDetailsBySaleId = (req, res) => {
           categoryName,
           supplierName,
           color,
-          size_id,
+          size,
           createdAt,
           updatedAt,
         };

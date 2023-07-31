@@ -16,6 +16,10 @@ const SaleDetail = sequelize.define(
       type: DataTypes.UUID,
       allowNull: true,
     },
+    color_size_id: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
     product_id: {
       type: DataTypes.UUID,
       allowNull: true,
@@ -26,6 +30,14 @@ const SaleDetail = sequelize.define(
     },
     quantity: {
       type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    color: {
+      type: DataTypes.STRING, // Assuming color is a string, adjust data type if needed
+      allowNull: true,
+    },
+    size: {
+      type: DataTypes.STRING, // Assuming size is a string, adjust data type if needed
       allowNull: true,
     },
   },
