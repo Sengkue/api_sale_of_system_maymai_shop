@@ -6,7 +6,7 @@ const { Op, literal } = require("sequelize");
 const sequelize = require("../config/db");
 const SaleDetail = require("../models/sale_detail.model"); // Assuming SaleDetail model exists
 
-// Modify this function to get the most imported product within a given date range
+// _____________________select most imported product within a given date range
 exports.getMostImportedProductByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;
 
@@ -64,9 +64,9 @@ exports.getMostImportedProductByDateRange = async (req, res) => {
   }
 };
 // _____________________select income and expenses by verery mount_____________________________
+
 exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
   const { startDate, endDate } = req.query;
-
   try {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -82,7 +82,7 @@ exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
       // Calculate Income (Revenue from Sales)
       const incomeSummary = await SaleDetail.findAll({
         attributes: [
-          [sequelize.fn("SUM", sequelize.col("sale_price")), "totalIncome"],
+          [sequelize.literal("SUM(sale_price * quantity)"), "totalIncome"],
         ],
         where: {
           [Op.and]: [
@@ -102,7 +102,7 @@ exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
       // Calculate Expenses (Total Cost of Imports)
       const expensesSummary = await ImportDetail.findAll({
         attributes: [
-          [sequelize.fn("SUM", sequelize.col("Imp_price")), "totalExpenses"],
+          [sequelize.literal("SUM(Imp_price * Imp_quantity)"), "totalExpenses"],
         ],
         where: {
           [Op.and]: [
@@ -144,6 +144,7 @@ exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 // ______________________select income an expenses by start day to end day_______________________
 // exports.getIncomeAndExpensesSummaryByDateRange = async (req, res) => {
 //   const { startDate, endDate } = req.query;
@@ -203,7 +204,10 @@ exports.getIncomeAndExpensesSummaryByMonth = async (req, res) => {
     // Calculate Income (Revenue from Sales)
     const incomeSummary = await SaleDetail.findAll({
       attributes: [
-        [sequelize.fn("SUM", sequelize.col("sale_price")), "totalIncome"],
+        [
+          sequelize.literal("SUM(sale_price * quantity)"),
+          "totalIncome",
+        ],
       ],
       where: {
         [Op.and]: [
@@ -224,7 +228,10 @@ exports.getIncomeAndExpensesSummaryByMonth = async (req, res) => {
     // Calculate Expenses (Total Cost of Imports)
     const expensesSummary = await ImportDetail.findAll({
       attributes: [
-        [sequelize.fn("SUM", sequelize.col("Imp_price")), "totalExpenses"],
+        [
+          sequelize.literal("SUM(Imp_price * Imp_quantity)"),
+          "totalExpenses",
+        ],
       ],
       where: {
         [Op.and]: [
@@ -256,6 +263,7 @@ exports.getIncomeAndExpensesSummaryByMonth = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 //_______________________select by year__________________________________
 
 // Define the getIncomeAndExpensesSummaryByYear function
@@ -266,7 +274,7 @@ exports.getIncomeAndExpensesSummaryByYear = async (req, res) => {
     // Calculate Income (Revenue from Sales)
     const incomeSummary = await SaleDetail.findAll({
       attributes: [
-        [sequelize.fn("SUM", sequelize.col("sale_price")), "totalIncome"],
+        [sequelize.literal("SUM(sale_price * quantity)"), "totalIncome"],
       ],
       where: {
         createdAt: {
@@ -280,7 +288,7 @@ exports.getIncomeAndExpensesSummaryByYear = async (req, res) => {
     // Calculate Expenses (Total Cost of Imports)
     const expensesSummary = await ImportDetail.findAll({
       attributes: [
-        [sequelize.fn("SUM", sequelize.col("Imp_price")), "totalExpenses"],
+        [sequelize.literal("SUM(Imp_price * Imp_quantity)"), "totalExpenses"],
       ],
       where: {
         createdAt: {
@@ -304,6 +312,7 @@ exports.getIncomeAndExpensesSummaryByYear = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 // ___________________________________create import detail ______________________
 exports.createImportDetail = (req, res) => {
   const { product_id, import_id, Imp_price, Imp_quantity } = req.body;
@@ -428,3 +437,44 @@ exports.getImportDetailsByImportId = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+// _______________________select the import details by import id 
+
+// exports.getImportDetailsByImportId = (req, res) => {
+//   const { import_id } = req.params;
+
+//   ImportDetail.findAll({
+//     where: { import_id },
+//     include: [
+//       {
+//         model: Product,
+//         as: "product",
+//         attributes: ["name", "profile"],
+//         include: [
+//           { model: Category, as: "category", attributes: ["category"] },
+//           { model: Supplier, as: "supplier", attributes: ["name"] },
+//         ],
+//       },
+//     ],
+//   })
+//     .then((importDetails) => {
+//       // Map the result to the desired structure
+//       const mappedImportDetails = importDetails.map((importDetail) => ({
+//         id: importDetail.id,
+//         product_id: importDetail.product_id,
+//         import_id: importDetail.import_id,
+//         Imp_price: importDetail.Imp_price,
+//         Imp_quantity: importDetail.Imp_quantity,
+//         createdAt: importDetail.createdAt,
+//         updatedAt: importDetail.updatedAt,
+//         productName: importDetail.product.name,
+//         productProfile: importDetail.product.profile,
+//         category: importDetail.product.category.category,
+//         supplierName: importDetail.product.supplier.name,
+//       }));
+
+//       res.status(200).json({ result: mappedImportDetails });
+//     })
+//     .catch((error) => {
+//       res.status(500).json({ error: error.message });
+//     });
+// };
