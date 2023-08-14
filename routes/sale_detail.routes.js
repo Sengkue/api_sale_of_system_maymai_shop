@@ -8,6 +8,7 @@ router.get('/hot/product', saleDetailController.getHot);
 router.get('/popular/product', saleDetailController.getPopularProduct);
 router.get('/sale-details/summary', saleDetailController.getSaleDetailSummary);
 router.get('/summary/group', saleDetailController.getSaleDetailSummaryGroup);
+router.get('/bestSeller', saleDetailController.getBestSellersByMonth); // New route for summary by month
 router.get('/summary/month', saleDetailController.getSaleDetailSummaryByMonth); // New route for summary by month
 router.get('/summary/year', saleDetailController.getSaleDetailSummaryByYear);
 router.get("/:id", saleDetailController.getSaleDetailById);

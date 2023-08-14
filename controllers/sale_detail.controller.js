@@ -5,6 +5,67 @@ const Supplier = require('../models/supplier.model');
 const sequelize = require('../config/db');
 const { Op } = require('sequelize');
 
+// ______________________selection best seller product
+exports.getBestSellersByMonth = (req, res) => {
+  const { month, year, limit } = req.query;
+
+  SaleDetail.findAll({
+    attributes: [
+      'color_size_id', // Group by color_size_id
+      'size', // Include size attribute
+      'color', // Include color attribute
+      [sequelize.fn('SUM', sequelize.col('SaleDetail.quantity')), 'totalQuantity'],
+      [sequelize.fn('SUM', sequelize.col('SaleDetail.sale_price')), 'totalSalePrice'],
+    ],
+    group: ['color_size_id', 'size', 'color'], // Group by color_size_id, size, and color
+    order: [[sequelize.literal('totalQuantity'), 'DESC']],
+    limit: parseInt(limit, 10),
+    include: [
+      {
+        model: Product,
+        attributes: ['name'], // Include product name
+        as: 'product',
+      },
+    ],
+    where: {
+      [Op.and]: [
+        sequelize.where(sequelize.fn('MONTH', sequelize.col('SaleDetail.createdAt')), parseInt(month, 10)),
+        sequelize.where(sequelize.fn('YEAR', sequelize.col('SaleDetail.createdAt')), parseInt(year, 10))
+      ]
+    },
+  })
+    .then((summary) => {
+      const result = summary.map((row) => {
+        const { color_size_id, size, color, totalQuantity, totalSalePrice, product } = row.toJSON();
+
+        const productName = product ? product.name : 'Product Not Found';
+
+        return {
+          color_size_id,
+          totalQuantity: Number(totalQuantity),
+          totalSalePrice: Number(totalSalePrice),
+          size,
+          color,
+          productName,
+        };
+      });
+
+      const overallSum = result.reduce(
+        (accumulator, { totalQuantity, totalSalePrice }) => {
+          accumulator.totalQuantity += totalQuantity;
+          accumulator.totalSalePrice += totalSalePrice;
+          return accumulator;
+        },
+        { totalQuantity: 0, totalSalePrice: 0 }
+      );
+
+      res.status(200).json({ overallSum, result });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+};
+
 exports.getAllSaleDetails = (req, res) => {
   SaleDetail.findAll()
     .then((saleDetails) => {
