@@ -20,7 +20,7 @@ app.post("/api", (req, res) =>{
     res.send("Hello world!");
 });
 
-const port_A = 8080;
+const port_A = 8000;
 const port = process.env.PORT || port_A;
 app.listen(port, () => {
   console.log(`Server is runing on port ${port}`);

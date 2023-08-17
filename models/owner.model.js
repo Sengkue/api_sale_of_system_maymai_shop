@@ -1,10 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-const Category = require("./category.model");
-const Supplier = require("./supplier.model");
 
-const Product = sequelize.define(
-  "products",
+const Owner = sequelize.define(
+  "owners",
   {
     id: {
       type: DataTypes.UUID,
@@ -12,11 +10,31 @@ const Product = sequelize.define(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    category_id: {
-      type: DataTypes.UUID,
+    firstName: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
-    name: {
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    profile: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    shopName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -24,36 +42,7 @@ const Product = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    sale_price: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    cost_price: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    Barcode: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    supplier_id: {
-      type: DataTypes.UUID,
-      allowNull: true,
-    },
-    profile: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 0,
-    },
-    size_id: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    color: {
+    address: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -64,7 +53,4 @@ const Product = sequelize.define(
   }
 );
 
-Product.belongsTo(Category, { foreignKey: "category_id", as: "category" });
-Product.belongsTo(Supplier, { foreignKey: "supplier_id", as: "supplier" });
-
-module.exports = Product;
+module.exports = Owner;
