@@ -1,0 +1,5617 @@
+{
+	"info": {
+		"_postman_id": "a77e45d4-26ae-452d-bdd6-5c10187f8c97",
+		"name": "MaymaiShop_POS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23894482",
+		"_collection_link": "https://dark-spaceship-893417.postman.co/workspace/New-Team-Workspace~3f509097-e5c0-47e2-9563-f79e97aba622/collection/23894482-a77e45d4-26ae-452d-bdd6-5c10187f8c97?action=share&source=collection_link&creator=23894482"
+	},
+	"item": [
+		{
+			"name": "Front End",
+			"item": [
+				{
+					"name": "customer",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fname\":\"sengkuevang\",\r\n    \"lname\":\"blongmai\",\r\n     \"gender\":\"male\",\r\n     \"phone\":2055054511,\r\n     \"password\":\"123\",\r\n    \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/customer/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/customer/002ffa37-691c-488c-ba17-599a6b4ca282",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"002ffa37-691c-488c-ba17-599a6b4ca282"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fname\":\"kchange\",\r\n    \"lname\":\"wang\",\r\n     \"gender\":\"male\",\r\n     \"phone\":2055054511,\r\n     \"password\":\"123\",\r\n    \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/002ffa37-691c-488c-ba17-599a6b4ca282",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"002ffa37-691c-488c-ba17-599a6b4ca282"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "customer Copy",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fname\":\"sengkuevang\",\r\n    \"lname\":\"blongmai\",\r\n     \"gender\":\"male\",\r\n     \"phone\":2055054511,\r\n     \"password\":\"123\",\r\n    \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/customer/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/customer/002ffa37-691c-488c-ba17-599a6b4ca282",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"002ffa37-691c-488c-ba17-599a6b4ca282"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fname\":\"kchange\",\r\n    \"lname\":\"wang\",\r\n     \"gender\":\"male\",\r\n     \"phone\":2055054511,\r\n     \"password\":\"123\",\r\n    \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/002ffa37-691c-488c-ba17-599a6b4ca282",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"002ffa37-691c-488c-ba17-599a6b4ca282"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Back End",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Admin-login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"Sengkuevang\",\r\n    \"password\":\"78781525\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Create Admin user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"employee_id\":\"0d53462e-879d-4c3f-b5e6-1e778b8fb721\",\r\n    \"owner_id\":\"\",\r\n    \"phone\": \"02055054511\" ,\r\n    \"password\":\"123\",\r\n    \"status\":\"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"phone\": \"02078781525\" ,\r\n    \"password\":\"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All Admin User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"content-length": true,
+									"host": true,
+									"connection": true,
+									"accept-encoding": true,
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5Y2FhMzM1LTE5OGYtNDVlNC05MjQxLWZjNWIzMjJlYzk1NCIsInVzZXJuYW1lIjoic2VuZ2t1ZXZhbmciLCJpYXQiOjE2ODczMDY0NDIsImV4cCI6MTY4OTk4NDg0Mn0.oGFZsoZEZ4qPS4xW_2tsJI6xSfJAAXAnrH32Vg_sQOw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Admin or User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0MmU0M2Y1LWM4NDItNGIwNy04Y2VhLTBiY2JlNTEyYzNkYiIsInVzZXJuYW1lIjoia2NoYW5nZSIsImlhdCI6MTY4NzMxODkzNSwiZXhwIjoxNjg5OTk3MzM1fQ.p_Y_b2h3nMekUx6THz2rbD-Ty8b2lxV4yq7jqHWoPxs",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/9eff108e-fd90-4238-adf0-633268f63314",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"9eff108e-fd90-4238-adf0-633268f63314"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjdiZDY0N2I3LTkxOGQtNDc0ZS05MjJhLWY3Y2FkZmI3OTVlMCIsIlVTRVJOQU1FIjoic2VuZyBrdWUgdmFuZyIsImlhdCI6MTY4NTM3NDUwMCwiZXhwIjoxNjg4MDUyOTAwfQ.dhk67mm9aUfhFG49xQCcKUuSHf3FX6BZRpWADdD7Gkc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"employee_id\":\"\",\r\n    \"owner_id\":\"kchange owner\",\r\n    \"phone\": \"02012312312\" ,\r\n    \"password\":\"12345678\",\r\n    \"status\":\"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/12012ef5-f547-491b-b279-f618000a3ebf",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"12012ef5-f547-491b-b279-f618000a3ebf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0MmU0M2Y1LWM4NDItNGIwNy04Y2VhLTBiY2JlNTEyYzNkYiIsInVzZXJuYW1lIjoia2NoYW5nZSIsImlhdCI6MTY4NzMxODkzNSwiZXhwIjoxNjg5OTk3MzM1fQ.p_Y_b2h3nMekUx6THz2rbD-Ty8b2lxV4yq7jqHWoPxs",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/user/46e249e8-deef-4e87-9245-64ddbbe21b98",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"46e249e8-deef-4e87-9245-64ddbbe21b98"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "customer",
+					"item": [
+						{
+							"name": "Create customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"c_profile\": \"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\",\r\n  \"c_fname\": \"serngkuevang\",\r\n  \"c_lname\": \"blongmai\",\r\n  \"c_gender\": \"Male\",\r\n  \"c_phone\": \"02078781525\",\r\n  \"c_password\": \"123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"c_phone\":\"02078781525\",\r\n    \"c_password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All Admin User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"content-length": true,
+									"host": true,
+									"connection": true,
+									"accept-encoding": true,
+									"accept": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkMWQzNTFlLTEyM2YtNDQwNi1hZWYxLTU3NmU3NjZmYjlmNSIsImNfcGhvbmUiOiIwMjA3ODc4MTUyNSIsImNfZm5hbWUiOiLgu4DguorgurHguofguqfgu4jgurLguociLCJpYXQiOjE2OTAxMDQwOTEsImV4cCI6MTY5Mjc4MjQ5MX0.nZxGd_JYyCvXzz7FygPB0hTESpkglAy1ZYh_9XGTn3w",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Admin or User",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjdiZDY0N2I3LTkxOGQtNDc0ZS05MjJhLWY3Y2FkZmI3OTVlMCIsIlVTRVJOQU1FIjoic2VuZyBrdWUgdmFuZyIsImlhdCI6MTY4NTM3NDUwMCwiZXhwIjoxNjg4MDUyOTAwfQ.dhk67mm9aUfhFG49xQCcKUuSHf3FX6BZRpWADdD7Gkc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/2552e78e-e66a-4882-bd74-bed612f75f84",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"2552e78e-e66a-4882-bd74-bed612f75f84"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update information",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjdiZDY0N2I3LTkxOGQtNDc0ZS05MjJhLWY3Y2FkZmI3OTVlMCIsIlVTRVJOQU1FIjoic2VuZyBrdWUgdmFuZyIsImlhdCI6MTY4NTM3NDUwMCwiZXhwIjoxNjg4MDUyOTAwfQ.dhk67mm9aUfhFG49xQCcKUuSHf3FX6BZRpWADdD7Gkc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"c_profile\":\"888888888888888888888888\",\r\n    \"c_fname\": \"vajkwmxeeb\",\r\n    \"c_lname\": \"wang\",\r\n    \"c_gender\": \"male\",\r\n    \"c_location_id\": \"asdfj;alsjdflasdjf\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/2552e78e-e66a-4882-bd74-bed612f75f84",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"2552e78e-e66a-4882-bd74-bed612f75f84"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update customer password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjdiZDY0N2I3LTkxOGQtNDc0ZS05MjJhLWY3Y2FkZmI3OTVlMCIsIlVTRVJOQU1FIjoic2VuZyBrdWUgdmFuZyIsImlhdCI6MTY4NTM3NDUwMCwiZXhwIjoxNjg4MDUyOTAwfQ.dhk67mm9aUfhFG49xQCcKUuSHf3FX6BZRpWADdD7Gkc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"c_password\":\"78781525\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/password/2056efac-b250-4a0f-bc4b-40bc8e64454c",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"password",
+										"2056efac-b250-4a0f-bc4b-40bc8e64454c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjdiZDY0N2I3LTkxOGQtNDc0ZS05MjJhLWY3Y2FkZmI3OTVlMCIsIlVTRVJOQU1FIjoic2VuZyBrdWUgdmFuZyIsImlhdCI6MTY4NTM3NDUwMCwiZXhwIjoxNjg4MDUyOTAwfQ.dhk67mm9aUfhFG49xQCcKUuSHf3FX6BZRpWADdD7Gkc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/customer/2552e78e-e66a-4882-bd74-bed612f75f84",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"customer",
+										"2552e78e-e66a-4882-bd74-bed612f75f84"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Add product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Product Name\",\r\n  \"category_id\": \"6a22e28f-f1a4-4ce3-af0e-bd7808a897ab\",\r\n  \"description\": \"Product Description\",\r\n  \"sale_price\": 9.99,\r\n  \"cost_price\": 4.99,\r\n  \"supplier_id\": \"0d53462e-879d-4c3f-b5e6-1e778b8fb721\",\r\n  \"profile\": \"Product Profile\",\r\n  \"quantity\": 10,\r\n  \"size_id\": \"valid_size_id\",\r\n  \"color\": \"Product Color\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "minu quantity",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/product/3f572756-b8db-4c53-bfdd-a9c10055ce95/subtract-quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"3f572756-b8db-4c53-bfdd-a9c10055ce95",
+										"subtract-quantity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add quantity to products",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"quantity\": 3\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/product/3f572756-b8db-4c53-bfdd-a9c10055ce95/subtract-import-quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"3f572756-b8db-4c53-bfdd-a9c10055ce95",
+										"subtract-import-quantity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/upload/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"upload",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All product by limit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/limit?limit=5",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"limit"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/fc41889e-7858-411f-aa3f-e7f96df2840b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"fc41889e-7858-411f-aa3f-e7f96df2840b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/64a0ad11-f836-497f-990f-509abd82eb2d",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"64a0ad11-f836-497f-990f-509abd82eb2d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select product almost out of stock",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/almost-out-of-stock",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"almost-out-of-stock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select product by category Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/category/813202ce-bfd5-4e91-b5b1-c42d40d2d95a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"category",
+										"813202ce-bfd5-4e91-b5b1-c42d40d2d95a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select product by supplier id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/supplier/1cb1f91f-8525-4c2f-9742-af2fa68b67d",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"supplier",
+										"1cb1f91f-8525-4c2f-9742-af2fa68b67d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"shirt55555555555555555\",\r\n  \"category\": null,\r\n  \"description\": \"Description of Product 1\",\r\n  \"quantity\": 10,\r\n  \"sale_price\": 29,\r\n  \"cost_price\": 19,\r\n  \"Barcode\": \"ABC123\",\r\n  \"supplier_id\": null,\r\n  \"profile\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2Ftuam%20leej%20kuab.png?alt=media&token=9e1e175d-818e-4494-9b3a-312e8eca8765\"\r\n}\r\n// {\r\n//   \"sale_price\": 25000,\r\n//   \"cost_price\": 15000\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/d5fab737-60ae-44e1-be24-b75fba960e79",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"d5fab737-60ae-44e1-be24-b75fba960e79"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/d3a7ac06-a49b-4d56-8acd-d4d949007239",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"d3a7ac06-a49b-4d56-8acd-d4d949007239"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete all",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/product/deleteAll",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"deleteAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Add Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/cb9f0913-53a3-4a6d-9479-bdced23e9c40",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"cb9f0913-53a3-4a6d-9479-bdced23e9c40"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Color_size",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_id\": \"product_id_here\",\r\n  \"color\": \"color_here\",\r\n  \"size\": \"size_here\",\r\n  \"quantity\": 10\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size/ef7f8c63-d88d-4e4e-b802-1bbc409eeab1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size",
+										"ef7f8c63-d88d-4e4e-b802-1bbc409eeab1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select by product_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size/byProductId/e05130d6-77e0-424c-a377-55e42c430245",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size",
+										"byProductId",
+										"e05130d6-77e0-424c-a377-55e42c430245"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_id\": \"updated_product_id_here\",\r\n  \"color\": \"updated_color_here\",\r\n  \"size\": \"updated_size_here\",\r\n  \"quantity\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size/ef7f8c63-d88d-4e4e-b802-1bbc409eeab1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size",
+										"ef7f8c63-d88d-4e4e-b802-1bbc409eeab1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subtract quantity",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size/subtract/3c813708-985a-41b9-ba97-9cefa73e55d1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size",
+										"subtract",
+										"3c813708-985a-41b9-ba97-9cefa73e55d1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "subtract quantity by productId and color_size_id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"quantity\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size/subtractByColorSizeAndProductId/989c3ecb-53d1-45fe-9353-f8cc9842e514/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size",
+										"subtractByColorSizeAndProductId",
+										"989c3ecb-53d1-45fe-9353-f8cc9842e514",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/color_size",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"color_size"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Add Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employee_id\": \"0ca8a48d-4aee-4cb3-a4e2-dbe2285b4dbf\",\r\n  \"order_date\": \"2023-07-01\",\r\n  \"status\": \"pending\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All Order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/ORDER20230709161347",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"ORDER20230709161347"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/status/pending",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"status",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"employee_id\": \"fbd99d27-d6df-47de-84f3-004c075a3a81\",\r\n  \"order_date\": \"2023-07-01\",\r\n  \"status\": \"completed\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/ORDER20230709161347",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"ORDER20230709161347"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"completed\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/ORDER20230709161347/status",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"ORDER20230709161347",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order/ORDER20230731142513",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"ORDER20230731142513"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order detial",
+					"item": [
+						{
+							"name": "Add Order detail",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_id\": \"c2e6655d-900a-4261-a7cf-cf86570981c7\",\r\n  \"order_id\": \"a39e1c7f-d876-454e-8306-9abb08f80df7\",\r\n  \"order_quantity\": 2,\r\n  \"color\": \"red\",\r\n  \"size\": \"L\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order_detail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order_detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All Order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order_detail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order_detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order_detail/99dd6579-d5fa-47fc-8f62-c4bcae577f1a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order_detail",
+										"99dd6579-d5fa-47fc-8f62-c4bcae577f1a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select Order_detail by order_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/order_detail/order/ORDER20230728162141",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order_detail",
+										"order",
+										"ORDER20230728162141"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "sale",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\":null ,\r\n  \"promotion_id\": \"fe5e14bd-c7e4-4113-8f81-be7cfbc60253\",\r\n  \"employee_id\": \"fbd99d27-d6df-47de-84f3-004c075a3a81\",\r\n  \"sale_date\": \"2023-07-01\",\r\n  \"sale_total\": 1000.0,\r\n  \"sale_quantity\": 5,\r\n  \"sale_type\": \"Online\",\r\n  \"sale_status\": \"Completed\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sell online by customer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": \"cf52d4d9-8770-4567-b407-71a4c9127b9a\",\r\n  \"promotion_id\": null,\r\n  \"employee_id\": null,\r\n  \"location_id\": \"f259b57f-0f9b-4228-af18-cc57c266e6d7\",\r\n  \"payment\": \"bcel one\",\r\n  \"sale_date\": \"2023-07-12T15:30:00.000Z\",\r\n  \"sale_total\": 120.5,\r\n  \"sale_type\": \"online\",\r\n  \"sale_status\": \"pending\",\r\n  \"sale_quantity\": 3\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/b226ad7c-032f-4267-b19d-3cd30bb8a8b1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"b226ad7c-032f-4267-b19d-3cd30bb8a8b1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select sale_Online  by sale_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/sell_online/1f03ef1a-57af-4efc-a706-ca1c9799a8cb",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"sell_online",
+										"1f03ef1a-57af-4efc-a706-ca1c9799a8cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by sale type",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/type/online",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"type",
+										"online"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by sale type&status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/online/pending",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"online",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by sale type&status&date",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/sales/status-type-date?sale_status=completed&sale_type=pos&startDate=2023-07-01&endDate=2023-07-30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"sales",
+										"status-type-date"
+									],
+									"query": [
+										{
+											"key": "sale_status",
+											"value": "completed"
+										},
+										{
+											"key": "sale_type",
+											"value": "pos"
+										},
+										{
+											"key": "startDate",
+											"value": "2023-07-01"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-07-30"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by sale type&status&customer_id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/online/pending/ad1d351e-123f-4406-aef1-576e766fb9f5",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"online",
+										"pending",
+										"ad1d351e-123f-4406-aef1-576e766fb9f5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": \"b8ece1c2-dc21-4036-b5a1-22a658acdd61\",\r\n  \"promotion_id\": \"your-promotion-id\",\r\n  \"employee_id\": \"your-employee-id\",\r\n  \"sale_date\": \"2023-07-01\",\r\n  \"sale_total\": 15000,\r\n  \"sale_type\": \"Offline\",\r\n  \"sale_status\": \"Completed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/978240dc-3fd3-458e-9203-fe94c4d6a2cb",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"978240dc-3fd3-458e-9203-fe94c4d6a2cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"sale_status\": \"pending\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/status/1f03ef1a-57af-4efc-a706-ca1c9799a8cb",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"status",
+										"1f03ef1a-57af-4efc-a706-ca1c9799a8cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/8a3aeb73-c239-408d-8c38-488300a0ed1b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"8a3aeb73-c239-408d-8c38-488300a0ed1b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "import Detail",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_id\": \"your-product-id\",\r\n  \"import_id\": \"your-import-id\",\r\n  \"Imp_price\": 10.5,\r\n  \"Imp_quantity\": 100\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/a619254b-1c53-4e38-a248-ade5a9bb417a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"a619254b-1c53-4e38-a248-ade5a9bb417a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select By import Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/import/IMPORT20230806123515",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"import",
+										"IMPORT20230806123515"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "income and expenses my month in year",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/income-expenses?month=7&year=2023",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"income-expenses"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "7"
+										},
+										{
+											"key": "year",
+											"value": "2023"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "income and expenses in year",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/year-income-expenses?year=2023",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"year-income-expenses"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2023"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "income and expense by start day to end day",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/income-expenses-date-range?startDate=2022-07-01&endDate=2023-07-30",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"income-expenses-date-range"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2022-07-01"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-07-30"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select top product import or order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/most-imported-product?startDate=2023-01-01&endDate=2023-07-31",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"most-imported-product"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2023-01-01"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-07-31"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_id\": \"your-product-id\",\r\n  \"import_id\": \"your-import-id\",\r\n  \"Imp_price\": 25000,\r\n  \"Imp_quantity\": 2000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/a619254b-1c53-4e38-a248-ade5a9bb417a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"a619254b-1c53-4e38-a248-ade5a9bb417a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import_detail/a619254b-1c53-4e38-a248-ade5a9bb417a",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import_detail",
+										"a619254b-1c53-4e38-a248-ade5a9bb417a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Import",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"import_total\": 1000.0,\r\n  \"receive_date\": \"2023-07-10\",\r\n  \"employee_id\": \"fbd99d27-d6df-47de-84f3-004c075a3a81\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all by start date and end date",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import/all-by-date?startDate=2023-01-01&endDate=2023-03-31",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import",
+										"all-by-date"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2023-01-01"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-03-31"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import/f3337fe6-f0c8-42d3-bb27-882d0e119bc6",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import",
+										"f3337fe6-f0c8-42d3-bb27-882d0e119bc6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"import_total\": 70000,\r\n  \"receive_date\": \"2023-07-01\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import/a0050b73-cf12-4838-b7f8-1bc2b4953239",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import",
+										"a0050b73-cf12-4838-b7f8-1bc2b4953239"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/import/be1eea0a-b458-4599-aa2c-5fe7840b23a0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"import",
+										"be1eea0a-b458-4599-aa2c-5fe7840b23a0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sale Detail",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"sale_id\": \"SELL20230730201528\",\r\n  \"product_id\":\"1a7e3383-0d75-488e-9f66-9fac74217139\",\r\n  \"sale_price\": 25000,\r\n  \"quantity\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select-sale_detail-summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale_detail/summary/group",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale_detail",
+										"summary",
+										"group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select-sale_detail-summary for month",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/summary/month?month=7&year=2023&limit=1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"summary",
+										"month"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "7"
+										},
+										{
+											"key": "year",
+											"value": "2023"
+										},
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select-best-Seller for month",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/bestSeller?month=7&year=2023&limit=1000",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"bestSeller"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "7"
+										},
+										{
+											"key": "year",
+											"value": "2023"
+										},
+										{
+											"key": "limit",
+											"value": "1000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select-sale_detail-summary for year",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/summary/month?month=7&year=2022&limit=5",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"summary",
+										"month"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "7"
+										},
+										{
+											"key": "year",
+											"value": "2022"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report-sale-detail",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/summary/group?limit=5",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"summary",
+										"group"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "popular-product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/popular/product",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"popular",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hot-product-use-in-homepage",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/hot/product?limit=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"hot",
+										"product"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/15bbe5ca-cfc5-4bbc-973b-a71d64cc2b05",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"15bbe5ca-cfc5-4bbc-973b-a71d64cc2b05"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select by sale id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/saleDetail/sale/24fa16e8-e62c-4015-a48a-04ff42717759",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"saleDetail",
+										"sale",
+										"24fa16e8-e62c-4015-a48a-04ff42717759"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": \"b8ece1c2-dc21-4036-b5a1-22a658acdd61\",\r\n  \"promotion_id\": \"your-promotion-id\",\r\n  \"employee_id\": \"your-employee-id\",\r\n  \"sale_date\": \"2023-07-01\",\r\n  \"sale_total\": 15000,\r\n  \"sale_type\": \"Offline\",\r\n  \"sale_status\": \"Completed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/978240dc-3fd3-458e-9203-fe94c4d6a2cb",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"978240dc-3fd3-458e-9203-fe94c4d6a2cb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/sale/8a3aeb73-c239-408d-8c38-488300a0ed1b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"sale",
+										"8a3aeb73-c239-408d-8c38-488300a0ed1b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "size",
+					"item": [
+						{
+							"name": "create size",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"size\": \"XL\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/size",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"size"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select All category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Select One Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"ເສື້ອ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/cb9f0913-53a3-4a6d-9479-bdced23e9c40",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"cb9f0913-53a3-4a6d-9479-bdced23e9c40"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"nkauj ntsais tus neeg ntxim nyiam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/category/a944eb26-0c3f-49bb-84ba-7a444281eaf9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"a944eb26-0c3f-49bb-84ba-7a444281eaf9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"kchange\",\r\n  \"lastName\": \"wang\",\r\n  \"gender\": \"Male\",\r\n  \"address\": \"123 Main St\",\r\n  \"provinceId\": 1,\r\n  \"districtId\": 1,\r\n  \"village\": \"Village A\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"02078781525\",\r\n  \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}\r\n\r\n    ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/employee/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fname\":\"xeeb kwm vaj\",\r\n    \"lname\":\"blongmai\",\r\n     \"gender\":\"ຊາຍ\",\r\n     \"phone\":2011111111,\r\n    \"province\":\"bolikhamsay\",\r\n     \"district\":\"pakading\",\r\n    \"village\":\"thongnamy\",\r\n    \"profile\":\"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/single-image%2F01.png?alt=media&token=aba533bd-0472-4fc9-bccd-bfd4da09162d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/employee/1fb5b260-fed1-4504-951d-cdcfbaecc635",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee",
+										"1fb5b260-fed1-4504-951d-cdcfbaecc635"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/employee",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/employee/d2350e73-a426-4b19-b086-b1dbc9273866",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee",
+										"d2350e73-a426-4b19-b086-b1dbc9273866"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/employee/ce0a2fa8-41d2-4119-8934-9ea93d80f415",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee",
+										"ce0a2fa8-41d2-4119-8934-9ea93d80f415"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/employee/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"employee",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Owner shop",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"gender\": \"Male\",\r\n  \"profile\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n  \"bannerId\": \"123456789\",\r\n  \"shopName\": \"Maymai shop\",\r\n  \"phone\": \"02055054511\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"description\": \"Welcome to my shop!\",\r\n  \"address\": \"in font of the dongdok street 2, saythany district and vientiane capietal province\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/owner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"gender\": \"Male\",\r\n  \"profile\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n  \"bannerId\": \"123456789\",\r\n  \"shopName\": \"My Shop\",\r\n  \"phone\": \"0123456789\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"description\": \"Welcome to my shop!\",\r\n  \"address\": \"123 Main Street, City, Country\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/owner/69b72565-3fa2-44a8-a82f-3f4c03f9a724",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"69b72565-3fa2-44a8-a82f-3f4c03f9a724"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/owner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA2ZTY5ZDhlLWZiNTYtNDBjZS1iMWFkLTMzNDBhNWJjMzEzMiIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2OTAxOTAzOTQsImV4cCI6MTY5Mjg2ODc5NH0.Huxm-leTES51ufQ7jFHhUsuDsnfaJyFUlA-DdfLLb9k",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/owner/553fe8c2-4987-4e0b-90d2-7ec2fbb04bef",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"553fe8c2-4987-4e0b-90d2-7ec2fbb04bef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/owner/b353a948-3386-4ef6-9e6d-130b44125e78",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"b353a948-3386-4ef6-9e6d-130b44125e78"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Location",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"province\": \"BolikhamSay\",\r\n  \"district\": \"Pakkading\",\r\n  \"village\": \"thongnamy\",\r\n  \"address\": \"13 main street\",\r\n  \"express\": \"Anousith\",\r\n  \"customer_id\": \"fb65d311-4413-4305-93e9-e5fa53bd1df5\",\r\n  \"phone\":\"02078781525\",\r\n  \"recipient\":\"sengkuevang\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/location",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"province\": \"bolikhamsay\",\r\n  \"district\": \"pakkading\",\r\n  \"village\": \"thongnamy\",\r\n  \"address\": \"13 street main\",\r\n  \"express\": \"abnubsi\",\r\n  \"customer_id\": \"fb65d311-4413-4305-93e9-e5fa53bd1df5\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/location/949a7412-c321-4633-a807-6881121fd281",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location",
+										"949a7412-c321-4633-a807-6881121fd281"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/location",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/location/931a86e2-e386-46fb-bbf9-50b5fdc8f9ea",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location",
+										"931a86e2-e386-46fb-bbf9-50b5fdc8f9ea"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/location/949a7412-c321-4633-a807-6881121fd281",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location",
+										"949a7412-c321-4633-a807-6881121fd281"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "supplier",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Supplier Company\",\r\n  \"phone\": \"1234567890\",\r\n  \"provinceId\": 1,\r\n  \"districtId\": 1,\r\n  \"village\": \"thongnamy\",\r\n  \"address\": \"123 Supplier Street\",\r\n  \"description\": \"This is a supplier company.\",\r\n  \"profile\": \"https://firebasestorage.googleapis.com/v0/b/seng-demo.appspot.com/o/multiple-images%2FIMG_1723%20(1).JPG?alt=media&token=150ca63e-3f53-4db3-9eb1-3ffea21e4168\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/supplier",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provinceId\": 1,\r\n  \"districtId\": 12fasdfasdfasdfsd3,\r\n  \"village\": \"Example Village\",\r\n  \"express\": \"Example Express\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/supplier",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/supplier",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/supplier/48025c04-16c9-4883-a415-aae270675ba0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier",
+										"48025c04-16c9-4883-a415-aae270675ba0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/supplier/8c4d6a97-8a8d-4a20-95cb-06ae9a209df9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"supplier",
+										"8c4d6a97-8a8d-4a20-95cb-06ae9a209df9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "promotions",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Summer Sale\",\r\n  \"condition\": \"Spend $100 or more\",\r\n  \"discount\": 0.2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/promotion",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"promotion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Winter Sale\",\r\n  \"condition\": \"Spend $200 or more\",\r\n  \"discount\": 0.25\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/promotion/75b0d825-8e4e-49a9-8d2b-08d1377d064c",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"promotion",
+										"75b0d825-8e4e-49a9-8d2b-08d1377d064c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/promotion/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"promotion",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/promotion/5995d967-1dfd-40e5-bedd-04e8e560393b",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"promotion",
+										"5995d967-1dfd-40e5-bedd-04e8e560393b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/promotion/75b0d825-8e4e-49a9-8d2b-08d1377d064c",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"promotion",
+										"75b0d825-8e4e-49a9-8d2b-08d1377d064c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "provinces",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provinceName\": \"ຊຽງຂວາງ\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/province",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"province"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provinceId\": 1,\r\n  \"districtId\": 12fasdfasdfasdfsd3,\r\n  \"village\": \"Example Village\",\r\n  \"express\": \"Example Express\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/location/19",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location",
+										"19"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/province",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"province"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/province/19",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"province",
+										"19"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/province/55",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"province",
+										"55"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete all",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/province/55",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"province",
+										"55"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "districts",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provinceId\": 1,\r\n  \"districtName\": \"ໄຊເສດຖາ\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/district",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select distric by province id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/district/province/25",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district",
+										"province",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"provinceId\": 1,\r\n  \"districtId\": 12fasdfasdfasdfsd3,\r\n  \"village\": \"Example Village\",\r\n  \"express\": \"Example Express\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/location/19",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"location",
+										"19"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/district",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/district/8",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/district/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete all",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/district",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"district"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "shop banner",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ownerId\": null,\r\n  \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/banner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ownerId\": 12345678,\r\n  \"url\": \"https://example.com/banner.jpg\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/banner/9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banner",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/banner",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/banner/9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banner",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwZWQzZWI2LTEwMWMtNGEyYy1hMmJmLTEyNjhhMjVhYWU4NSIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODc0MjI0OTUsImV4cCI6MTY5MDEwMDg5NX0.2dRnWo_vJK5wwhm3tOtxBYui873tLiNLlxs4Nm4IbfI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/banner/9",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banner",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload-profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjAyZWU4NWI1LWYzYTQtNDQwMi1hNTk3LTNjMDg4NTFkYjgyMSIsIlVTRVJOQU1FIjoia2NoYW5nZSIsImlhdCI6MTY4NjE5NzI4OSwiZXhwIjoxNjg4ODc1Njg5fQ.237UvjiCEC41fpdnx_Oo7pzDeygIKfRGOAhl1GZ9YgY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tubci/OneDrive/เดสก์ท็อป/Untitled-1.jpg"
+										},
+										{
+											"key": "fname",
+											"value": "sengkuevang",
+											"type": "text"
+										},
+										{
+											"key": "lname",
+											"value": "wang",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "02055054511",
+											"type": "text"
+										},
+										{
+											"key": "province",
+											"value": "bolikhamsay",
+											"type": "text"
+										},
+										{
+											"key": "district",
+											"value": "pakading",
+											"type": "text"
+										},
+										{
+											"key": "village",
+											"value": "thongnamy",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/owner/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"owner",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "upload image",
+					"item": [
+						{
+							"name": "upload one image",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/tou/Documents/tuam leej.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/upload/single",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"upload",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload many image",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": "/C:/Users/tou/Documents/tuam leej kaub01.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/upload/multiple",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"upload",
+										"multiple"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "image-all",
+					"item": [
+						{
+							"name": "insert image",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"d1ca3e0d-2da8-4809-8e1f-14f85ea6c285\",\r\n    \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n    \"altText\": \"shirt\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/image/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"image",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select one image",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"d1ca3e0d-2da8-4809-8e1f-14f85ea6c285\",\r\n    \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n    \"altText\": \"shirt\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/image/6f13bdb7-f5cd-4aeb-8fea-26846cbb7bf0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"image",
+										"6f13bdb7-f5cd-4aeb-8fea-26846cbb7bf0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete image",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4Mjc2MzYxLTM0ZTctNDAwMi05MzEyLWE0YzBmMTFiZTI0YiIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODgxMTIxMzAsImV4cCI6MTY5MDc5MDUzMH0.pFY6kj1j_wg-LACWONpPyInmIhMKgcp3pKgdJGz7SF8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"d1ca3e0d-2da8-4809-8e1f-14f85ea6c285\",\r\n    \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n    \"altText\": \"shirt\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/image/6f13bdb7-f5cd-4aeb-8fea-26846cbb7bf0",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"image",
+										"6f13bdb7-f5cd-4aeb-8fea-26846cbb7bf0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select images",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4Mjc2MzYxLTM0ZTctNDAwMi05MzEyLWE0YzBmMTFiZTI0YiIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODgxMTIxMzAsImV4cCI6MTY5MDc5MDUzMH0.pFY6kj1j_wg-LACWONpPyInmIhMKgcp3pKgdJGz7SF8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"d1ca3e0d-2da8-4809-8e1f-14f85ea6c285\",\r\n    \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n    \"altText\": \"shirt\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/image/",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"image",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "select images by product id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "SENG eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4Mjc2MzYxLTM0ZTctNDAwMi05MzEyLWE0YzBmMTFiZTI0YiIsInBob25lIjoiMDIwNzg3ODE1MjUiLCJpYXQiOjE2ODgxMTIxMzAsImV4cCI6MTY5MDc5MDUzMH0.pFY6kj1j_wg-LACWONpPyInmIhMKgcp3pKgdJGz7SF8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"d1ca3e0d-2da8-4809-8e1f-14f85ea6c285\",\r\n    \"url\": \"https://firebasestorage.googleapis.com/v0/b/test-8c391.appspot.com/o/Single_image%2F01.png?alt=media&token=25f7acd8-4481-45ce-86df-a2857c70a33f\",\r\n    \"altText\": \"shirt\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/image/product/3f572756-b8db-4c53-bfdd-a9c10055ce95",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"image",
+										"product",
+										"3f572756-b8db-4c53-bfdd-a9c10055ce95"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload many image",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": [
+												"/C:/Users/tubci/Downloads/1686124994089.jpg",
+												"/C:/Users/tubci/Downloads/flowers-19830_1280.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/upload/multiple",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"upload",
+										"multiple"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
